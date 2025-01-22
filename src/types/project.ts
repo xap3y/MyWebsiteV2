@@ -4,6 +4,7 @@ import {ReactNode} from "react";
 export interface Project {
     name: string;
     description: string;
+    url?: string;
     large_image?: string;
     small_image?: string;
     gallery?: string[];
