@@ -1,8 +1,58 @@
+@import url('https://fonts.googleapis.com/css2?family=Playwrite+VN:wght@100..400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Kode+Mono:wght@400..700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Caesar+Dressing&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Sixtyfour&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fleur+De+Leah&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-:root {
+
+.playwrite-vn-400 {
+   font-family: "Playwrite VN", serif;
+   font-optical-sizing: auto;
+   font-weight: 400;
+   font-style: normal;
+}
+
+.kode-mono-700 {
+   font-family: "Kode Mono", serif;
+   font-optical-sizing: auto;
+   font-weight: 700;
+   font-style: normal;
+}
+
+.caesar-dressing-regular {
+   font-family: "Caesar Dressing", serif;
+   font-weight: 400;
+   font-style: normal;
+}
+
+.sixtyfour-default {
+   font-family: "Sixtyfour", serif;
+   font-optical-sizing: auto;
+   font-weight: 400;
+   font-style: normal;
+   font-variation-settings:
+           "BLED" 60,
+           "SCAN" -16;
+}
+.fleur-de-leah-regular {
+   font-family: "Fleur De Leah", serif;
+   font-weight: 400;
+   font-style: normal;
+}
+
+.font-source-code-pro {
+   font-family: "Source Code Pro", serif;
+   font-optical-sizing: auto;
+   font-weight: 500;
+   font-style: normal;
+}
+
+/*:root {
   --background: #ffffff;
   --foreground: #171717;
 }
@@ -12,10 +62,4 @@
     --background: #0a0a0a;
     --foreground: #ededed;
   }
-}
-
-body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
-}
+}*/
