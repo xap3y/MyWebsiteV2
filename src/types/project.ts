@@ -8,7 +8,7 @@ export interface Project {
     large_image?: string;
     small_image?: string;
     gallery?: string[];
-    tags?: string[];
+    tags: string[];
     left_button?: ProjectButton;
     right_button?: ProjectButton;
 

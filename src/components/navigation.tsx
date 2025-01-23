@@ -6,13 +6,15 @@ import { IoMdInformationCircleOutline } from "react-icons/io";
 import { RiLinksFill } from "react-icons/ri";
 import {NavButton, NavButtonMobile} from "@/components/navButton";
 import {VerLine} from "@/components/verLine";
-import {useEffect, useState} from "react";
+import React, {useEffect, useState} from "react";
 
 interface Props {
     animations: boolean;
+    value?: string;
+    setValue?: React.Dispatch<React.SetStateAction<string>>;
 }
 
-export function Navigation({animations}: Props) {
+export function Navigation({animations, setValue}: Props) {
 
     const [header, setHeader] = useState("XAP3Y");
     const [loading, setLoading] = useState(false);
@@ -99,6 +101,12 @@ export function Navigation({animations}: Props) {
         };
     }, [header]);
 
+    function handleClick(value: string) {
+        if (setValue) {
+            setValue(value);
+        }
+    }
+
     return (
         <>
             <header
@@ -127,25 +135,25 @@ export function Navigation({animations}: Props) {
                     {/* Desktop ONLY */}
                     <nav
                         className={`hidden lg:flex rounded-xl bg-secondary shadow-xl border-battleship_gray gap-5 items-center px-5 py-3 mr-10 ${animations ? "animate-fadeInRight" : ""}`}>
-                        <NavButton icon={<FaHome size={30}/>} label="HOME" route="/home"/>
+                        <NavButton onClick={() => handleClick("home")} icon={<FaHome size={30}/>} label="HOME" route="/home"/>
                         <VerLine/>
-                        <NavButton icon={<IoMdInformationCircleOutline size={30}/>} label="ABOUT" route="/about"/>
+                        <NavButton onClick={() => handleClick("about")} icon={<IoMdInformationCircleOutline size={30}/>} label="ABOUT" route="/about"/>
                         <VerLine/>
-                        <NavButton icon={<HiOutlineCollection size={30}/>} label="PROJECTS" route="/projects"/>
+                        <NavButton onClick={() => handleClick("projects")} icon={<HiOutlineCollection size={30}/>} label="PROJECTS" route="/projects"/>
                         <VerLine/>
-                        <NavButton icon={<RiLinksFill size={30}/>} label="LINKTREE" route="/links"/>
+                        <NavButton onClick={() => handleClick("links")} icon={<RiLinksFill size={30}/>} label="LINKTREE" route="/links"/>
                     </nav>
 
                     {/* Mobile & Tablet ONLY */}
                     <nav
                         className={`lg:hidden fixed bottom-0 left-0 w-full bg-primary_light p-4 flex overflow-x-auto overflow-y-hidden scrollbar-hide justify-center gap-4 ${animations ? "animate-fadeInBottom" : ""}`}>
-                        <NavButtonMobile className={animations ? "animate-fadeInBottom" : ""} icon={<FaHome size={30}/>} label="Home"
+                        <NavButtonMobile onClick={() => handleClick("home")} className={animations ? "animate-fadeInBottom" : ""} icon={<FaHome size={30}/>} label="Home"
                                          route="/home"/>
-                        <NavButtonMobile className={animations ? "animate-fadeInBottom2" : ""}
+                        <NavButtonMobile onClick={() => handleClick("about")} className={animations ? "animate-fadeInBottom2" : ""}
                                          icon={<IoMdInformationCircleOutline size={30}/>} label="About" route="/about"/>
-                        <NavButtonMobile className={animations ? "animate-fadeInBottom3" : ""} icon={<HiOutlineCollection size={30}/>}
+                        <NavButtonMobile onClick={() => handleClick("projects")} className={animations ? "animate-fadeInBottom3" : ""} icon={<HiOutlineCollection size={30}/>}
                                          label="Projects" route="/projects"/>
-                        <NavButtonMobile className={animations ? "animate-fadeInBottom4" : ""} icon={<RiLinksFill size={30}/>}
+                        <NavButtonMobile onClick={() => handleClick("links")} className={animations ? "animate-fadeInBottom4" : ""} icon={<RiLinksFill size={30}/>}
                                          label="LinkTree" route="/links"/>
                     </nav>
                 </div>

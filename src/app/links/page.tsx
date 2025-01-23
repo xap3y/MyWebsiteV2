@@ -1,6 +1,7 @@
 import {Navigation} from "@/components/navigation";
 import Projects from "@/app/projects/client";
 import {linktree} from "@/util/config";
+import Links from "@/app/links/client";
 
 export default function Page() {
     return (
@@ -8,12 +9,13 @@ export default function Page() {
 
             <Navigation animations={false} />
 
-            <div className="from-amber-500 to-pink-500"></div>
-            <div className="w-full min-h-screen flex items-center justify-center">
+            <Links />
+
+            {/*<div className="w-full min-h-screen flex items-center justify-center">
                 <div className="flex flex-col justify-center items-center h-full space-y-6">
                     <div className="flex flex-col items-center">
-                        {/*<img alt="my profile icon" width="250" height="250" src="./icons/mypfp.png"
-                             className="rounded-full" loading="lazy"/>*/}
+                        <img alt="my profile icon" width="250" height="250" src="./icons/mypfp.png"
+                             className="rounded-full" loading="lazy"/>
                         <p className={"text-red-700 text-4xl font-bold py-12"}>In limbo</p>
                         <div className="flex flex-col items-center mb-4">
                             <h1 className="text-2xl text-white font-bold pt-3 font-mono">@XAP3Y</h1>
@@ -41,7 +43,7 @@ export default function Page() {
                         </div>
                     </div>
                 </div>
-            </div>
+            </div>*/}
         </>
     )
 }

@@ -34,7 +34,7 @@ export const projects: Project[] = [
     {
         name: "XaGUI",
         url: "https://xagui.xap3y.tech",
-        description: "Lightweight Minecraft menu API. This API allows you to easily set button actions, define onClose and onOpen actions, and perform fast icon updates without reopening the GUI. You can also create multi-page GUI's.",
+        description: "Lightweight Minecraft menu API. This API allows you to easily set button actions, define onClose and onOpen actions, and perform fast icon updates without reopening the GUI. You can also create multi-pageTsx GUI's.",
         tags: ["BukkitAPI", "Kotlin"],
     },
     {

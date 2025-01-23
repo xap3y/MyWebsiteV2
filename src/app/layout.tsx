@@ -43,7 +43,7 @@ export default function RootLayout({
     <html lang="en">
       <body
           cz-shortcut-listen="true"
-        className={`${geistSans.variable} ${geistMono.variable} overflow-hidden h-[100vh] antialiased bg-primary text-whitesmoke scrollbar-hide`}
+        className={`${geistSans.variable} ${geistMono.variable} h-[100vh] antialiased bg-primary text-whitesmoke scroll-smooth`}
       >
         {children}
       </body>

@@ -2,13 +2,11 @@
 import {Navigation} from "@/components/navigation";
 import React, { useState, useEffect } from 'react';
 import { useRouter } from "next/navigation";
-import Index2 from "@/app/index2/client";
+import Home from "@/app/home/client";
 
 export default function page() {
 
     const router = useRouter();
-
-    const [value, setValue] = useState<string>("home");
 
     const [isLoaded, setIsLoaded] = useState(false);
     const texts = ["Привет",          "Vítejte",         "स्वागत",     "ကြိုဆိုပါတယ်။", "Willkommen",  "いらっしゃいませ",   "환영", "Bienvenida", "Bem-vindo", "خوش آمدید"];
@@ -38,6 +36,12 @@ export default function page() {
                 setIsLoaded(true);
                 clearInterval(intervalId);
             }, 1200);
+
+            setTimeout(() => {
+                router.replace("/home", { scroll: false});
+            }, 2000);
+
+            return () => clearInterval(intervalId);
         }, 300);
     }, [router]);
 
@@ -64,9 +68,9 @@ export default function page() {
 
             {isLoaded && (
                 <>
-                    <Navigation setValue={setValue} animations={true} />
+                    <Navigation animations={true} />
 
-                    <Index2 value={value} />
+                    <Home loading={true} />
                 </>
             )}
         </>
