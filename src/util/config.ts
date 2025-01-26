@@ -92,7 +92,7 @@ export const linktree = [
         },*/
     {
         name: "Xap3y-space",
-        link: "https://xap3y.space/profile/xap3y",
+        link: "https://s.xap3y.tech/profile/xap3y",
         backgroundcolor: "black",
         img: "",
         desc: "@xap3y",

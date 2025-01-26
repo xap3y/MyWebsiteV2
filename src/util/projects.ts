@@ -16,7 +16,7 @@ export const projects: Project[] = [
     },
     {
         name: "Space API",
-        url: "https://xap3y.space",
+        url: "https://s.xap3y.tech",
         description: "Image, pastes & shortURL API",
         tags: ["Spring Boot", "MariaDB", "Next.js", "Java"],
     },
