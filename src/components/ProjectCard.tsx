@@ -78,7 +78,7 @@ export default function ProjectCard({ project }: { project: Project }) {
 
 function ProjectButtonComponent({ button }: { button: ProjectButton }) {
     return (
-        <a href={button.href} className={"flex flex-row gap-3 border-2 rounded p-2 hover:bg-primary hover:border-secondary transform transition-all duration-200 font-bold shadow-lg"}>
+        <a href={button.href} className={"lg:text-lg text-xs flex flex-row gap-3 border-2 rounded p-2 hover:bg-primary hover:border-secondary transform transition-all duration-200 font-bold shadow-lg"}>
             {/* @ts-ignore */}
             {button.icon && <div className={"w-[25px]"}><Icon icon={button.icon} width={25} height={25} /></div>}
             <button>

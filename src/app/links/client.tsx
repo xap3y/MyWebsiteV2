@@ -1,5 +1,6 @@
 import {linktree} from "@/util/config";
 import {Icon} from "@iconify/react";
+import React from "react";
 
 
 export default function Links() {
@@ -27,6 +28,8 @@ export default function Links() {
                         }
                     </div>
                 </div>
+
+                <div className={"mt-40 w-0.5 h-0.5 lg:h-0 lg:w-0"}></div>
             </main>
         </>
     );

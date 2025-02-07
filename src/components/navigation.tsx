@@ -146,7 +146,7 @@ export function Navigation({animations, setValue}: Props) {
 
                     {/* Mobile & Tablet ONLY */}
                     <nav
-                        className={`lg:hidden fixed bottom-0 left-0 w-full bg-primary_light p-4 flex overflow-x-auto overflow-y-hidden scrollbar-hide justify-center gap-4 ${animations ? "animate-fadeInBottom" : ""}`}>
+                        className={`z-50 lg:hidden fixed bottom-0 left-0 w-full bg-primary_light p-4 flex overflow-x-auto overflow-y-hidden scrollbar-hide justify-center gap-4 ${animations ? "animate-fadeInBottom" : ""}`}>
                         <NavButtonMobile onClick={() => handleClick("home")} className={animations ? "animate-fadeInBottom" : ""} icon={<FaHome size={30}/>} label="Home"
                                          route="/home"/>
                         <NavButtonMobile onClick={() => handleClick("about")} className={animations ? "animate-fadeInBottom2" : ""}

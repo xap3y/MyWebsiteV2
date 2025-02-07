@@ -24,7 +24,7 @@ export default function Home( {loading }: Props) {
 
     return (
         <>
-            <main className={`${loading ? "animate-fadeBlur" : ""} flex flex-col justify-center items-center mt-48`}>
+            <main className={`${loading ? "animate-fadeBlur" : ""} flex flex-col justify-center items-center mt-48 overflow-hidden`}>
 
                 <h1 className={`font-bold font-roboto xl:text-6xl lg:text-5xl text-4xl ${loading ? "animate-fadeOpacity" : ""}`}>Hello, I'm <span className={"text-yellow-100"}>xap3y</span></h1>
                 <p className={"text-battleship_gray mt-5"}>Developer</p>
