@@ -13,7 +13,7 @@ export const projects: Project[] = [
         ],
         left_button: {
             label: "Source",
-            href: "https://xap3y.tech",
+            href: "https://github.com/xap3y/MyWebsiteV2",
             icon: "mdi:github",
         },
         gallery: [
