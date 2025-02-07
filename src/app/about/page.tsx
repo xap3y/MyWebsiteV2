@@ -1,13 +1,12 @@
 import {Navigation} from "@/components/navigation";
+import About from "@/app/about/client";
 
 export default function Page() {
     return (
         <>
             <Navigation animations={false}/>
 
-            <main>
-                <h1 className={"font-source-code-pro text-5xl text-center"}>About</h1>
-            </main>
+            <About/>
         </>
     )
 }

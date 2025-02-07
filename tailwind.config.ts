@@ -11,9 +11,23 @@ export default {
       colors: {
         primary: "#171717",
         secondary: "#1c1c1c",
+        secondary_light: "#333333",
         primary_light: "#242424",
         battleship_gray: "#858585",
-        whitesmoke: "#f5f5f5"
+        whitesmoke: "#f5f5f5",
+        telegram: "#24A1DE",
+        telegram2: "#0088cc",
+        telegramDarker: "#0081c3",
+        telegramBright: "#00a7ff",
+        telegramBrighter: "#29b1ff",
+        telegramBrightest: "#60beff",
+      },
+      backgroundImage: {
+        primaryDotted: "radial-gradient(#242424 1px, #171717 1px)",
+        primaryDottedFooter: "radial-gradient(#D5D5B8 1px, #ECECE2 1px)",
+      },
+      backgroundSize: {
+        primaryDottedSize: "15px 15px",
       },
       keyframes: {
         fadeInRight: {
@@ -62,5 +76,5 @@ export default {
       }
     },
   },
-  plugins: [],
+  plugins: [require("tailwind-scrollbar")],
 } satisfies Config;

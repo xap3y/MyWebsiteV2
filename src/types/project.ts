@@ -11,7 +11,6 @@ export interface Project {
     tags: string[];
     left_button?: ProjectButton;
     right_button?: ProjectButton;
-
 }
 
 export interface ProjectData {
@@ -23,5 +22,5 @@ export interface ProjectButton {
     href: string;
     text_color?: string;
     bg_color?: string;
-    icon?: ReactNode;
+    icon?: String;
 }

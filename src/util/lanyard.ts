@@ -19,5 +19,15 @@ export async function getMyDetails(): Promise<UserInfo> {
         listening_to_spotify: json.data.listening_to_spotify,
     }
 
+    if (userInfo.listening_to_spotify) {
+        userInfo.spotify = {
+            album: json.data.spotify.album,
+            album_art_url: json.data.spotify.album_art_url,
+            artist: json.data.spotify.artist,
+            song: json.data.spotify.song,
+            track_id: json.data.spotify.track_id,
+            timestamps: json.data.spotify.timestamps
+        }
+    }
     return userInfo;
 }

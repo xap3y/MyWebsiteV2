@@ -110,7 +110,7 @@ export function Navigation({animations, setValue}: Props) {
     return (
         <>
             <header
-                className={"w-full flex lg:flex-row p-4 lg:justify-between justify-center lg:pl-[10%] pl-[5%] relative"}>
+                className={"w-full flex lg:flex-row p-4 lg:justify-between justify-center lg:pl-[10%] pl-[5%] relative overflow-hidden"}>
                 <div className={`${animations ? "animate-fadeBlur" : ""} flex items-center`}>
                     <h1 className={`text-4xl font-source-code-pro ${animations ? "animate-fadeInTop lg:animate-fadeInLeft" : ""}`}>{"I'm " + header}</h1>
                 </div>

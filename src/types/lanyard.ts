@@ -1,6 +1,7 @@
 export interface UserInfo {
     discord_status: string;
     listening_to_spotify: boolean;
+    spotify?: Spotify;
 }
 
 export interface Spotify {

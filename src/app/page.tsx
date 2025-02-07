@@ -3,6 +3,8 @@ import {Navigation} from "@/components/navigation";
 import React, { useState, useEffect } from 'react';
 import { useRouter } from "next/navigation";
 import Index2 from "@/app/index2/client";
+import {getMyDetails} from "@/util/lanyard";
+import {UserInfo} from "@/types/lanyard";
 
 export default function page() {
 
@@ -18,8 +20,23 @@ export default function page() {
     const [blur, setBlur] = useState(0);
     const [fontIndex, setFontIndex] = useState(0);
 
+    const [discordDetails, setDiscordDetails] = useState<UserInfo>();
+
+    type Status = "online" | "idle" | "dnd" | "offline";
+
 
     useEffect(() => {
+
+        getMyDetails().then((details) => {
+            setDiscordDetails(details);
+            console.log(details)
+        });
+
+        setInterval(() => {
+            getMyDetails().then((details) => {
+                setDiscordDetails(details);
+            });
+        }, 10000);
 
         setTimeout(() => {
             let index = 0;
@@ -66,7 +83,7 @@ export default function page() {
                 <>
                     <Navigation setValue={setValue} animations={true} />
 
-                    <Index2 value={value} />
+                    <Index2 value={value} discord={discordDetails} />
                 </>
             )}
         </>

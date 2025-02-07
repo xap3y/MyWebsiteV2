@@ -3,12 +3,14 @@ import Home from "@/app/home/client";
 import About from "@/app/about/client";
 import Projects from "@/app/projects/client";
 import Links from "@/app/links/client";
+import {UserInfo} from "@/types/lanyard";
 
 interface Props {
     value: string;
+    discord?: UserInfo;
 }
 
-export default function Index2({ value }: Props) {
+export default function Index2({ value, discord }: Props) {
 
     return (
         <>
@@ -22,7 +24,7 @@ export default function Index2({ value }: Props) {
             {
                 (value == "about") &&
                 <>
-                    <About />
+                    <About discord={discord} />
                 </>
             }
 

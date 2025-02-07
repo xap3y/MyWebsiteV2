@@ -6,6 +6,7 @@ import {ReactNode, useEffect, useState} from "react";
 import {UserInfo} from "@/types/lanyard";
 import {getMyDetails} from "@/util/lanyard";
 import {socials} from "@/util/config";
+import {Icon} from "@iconify/react";
 
 interface Props {
     loading: boolean;
@@ -33,15 +34,6 @@ export default function Home( {loading }: Props) {
     };
 
     useEffect(() => {
-        curDot({
-            zIndex: 2,
-            diameter: 5,
-            borderWidth: 1,
-            borderColor: 'transparent',
-            easing: 4,
-            background: 'whitesmoke'
-        });
-
         getMyDetails().then((details) => {
             setDiscordDetails(details);
             handleStatusChange(details.discord_status);
@@ -53,20 +45,16 @@ export default function Home( {loading }: Props) {
         <>
             <main className={`${loading ? "animate-fadeBlur" : ""} flex flex-col justify-center items-center mt-48`}>
 
-                <h1 className={`font-bold font-roboto text-6xl ${loading ? "animate-fadeOpacity" : ""}`}>@XAP3Y</h1>
+                <h1 className={`font-bold font-roboto xl:text-6xl lg:text-5xl text-4xl ${loading ? "animate-fadeOpacity" : ""}`}>Hello, I'm <span className={"text-yellow-100"}>xap3y</span></h1>
                 <p className={"text-battleship_gray mt-5"}>Developer</p>
 
                 <div className="flex justify-center">
                     <ul className="flex flex-row gap-0.5">
                         {
                             socials.map((social) => (
-                                <li key={social.name} className="mr-3 pt-3">
+                                <li key={social.name} className="mr-3 pt-3 transition-all hover:-translate-y-1 transform-gpu">
                                     <a href={social.link} title={social.name}>
-                                        <img
-                                            className="h-[30px] w-[30px] transition-all hover:-translate-y-1 transform-gpu"
-                                            src={`/icons/${social.icon}`}
-                                            alt={`${social.name} icon`}
-                                        />
+                                        <Icon icon={social.icon} width={32} height={32} />
                                     </a>
                                 </li>
                             ))

@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono, Open_Sans } from "next/font/google";
 import "./globals.css";
+import { Analytics } from "@vercel/analytics/react"
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -43,8 +44,9 @@ export default function RootLayout({
     <html lang="en">
       <body
           cz-shortcut-listen="true"
-        className={`${geistSans.variable} ${geistMono.variable} h-[100vh] antialiased bg-primary text-whitesmoke scroll-smooth`}
+        className={`${geistSans.variable} ${geistMono.variable} h-[100vh] antialiased bg-primary text-whitesmoke scroll-smooth bg-primaryDotted bg-primaryDottedSize`}
       >
+      <Analytics/>
         {children}
       </body>
     </html>
