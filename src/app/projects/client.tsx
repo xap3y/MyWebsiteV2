@@ -15,28 +15,6 @@ export default function Projects() {
                             <ProjectCard key={project.name} project={project} />
                         ))
                     }
-                    {/*<div className={"rounded-lg border-4 border-secondary bg-primary_light lg:w-[400px] w-72"}>
-                        <div className={"h-36 rounded-t-lg"}>
-
-                        </div>
-                        <div className={"flex justify-center items-center bg-primary py-2 text-2xl font-bold border-t-2 border-secondary"}>
-                            <p>Project Name</p>
-                        </div>
-                        <div className={"flex flex-row items-center justify-center gap-4 p-4 overflow-scroll custom-scroll custom-fade select-none"}>
-                            <img src="https://img.shields.io/badge/Java-%23ED8B00.svg?logo=openjdk&logoColor=white" draggable={false} />
-                            <img src="https://img.shields.io/badge/Java-%23ED8B00.svg?logo=openjdk&logoColor=white" draggable={false} />
-                            <img src="https://img.shields.io/badge/Java-%23ED8B00.svg?logo=openjdk&logoColor=white" draggable={false} />
-                            <img src="https://img.shields.io/badge/Java-%23ED8B00.svg?logo=openjdk&logoColor=white" draggable={false} />
-                            <img src="https://img.shields.io/badge/Java-%23ED8B00.svg?logo=openjdk&logoColor=white" draggable={false} />
-                            <img src="https://img.shields.io/badge/Java-%23ED8B00.svg?logo=openjdk&logoColor=white" draggable={false} />
-                        </div>
-
-                        <div ref={scrollRef} className={`border-t-2 border-secondary p-4 max-h-[400px] overflow-y-scroll custom-scroll ${
-                            isAtBottom ? "no-bottom-fade" : "custom-fade-vertical"
-                        }`}>
-                            <p>My websitue</p>
-                        </div>
-                    </div>*/}
 
                 </div>
 

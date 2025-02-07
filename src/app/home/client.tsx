@@ -2,7 +2,7 @@
 // @ts-ignore
 import curDot from 'cursor-dot'
 
-import {ReactNode, useEffect, useState} from "react";
+import {useEffect, useState} from "react";
 import {UserInfo} from "@/types/lanyard";
 import {getMyDetails} from "@/util/lanyard";
 import {socials} from "@/util/config";
@@ -16,28 +16,9 @@ export default function Home( {loading }: Props) {
 
     const [discordDetails, setDiscordDetails] = useState<UserInfo | undefined>(undefined);
 
-    type Status = "online" | "idle" | "dnd" | "offline";
-
-    const statusColors: Record<Status, string> = {
-        online: "bg-green-500",
-        idle: "bg-yellow-500",
-        dnd: "bg-red-500",
-        offline: "bg-gray-800"
-    };
-
-    const [color, setColor] = useState<string>(statusColors.offline);
-
-    const handleStatusChange = (status: string) => {
-        if (status in statusColors) {
-            setColor(statusColors[status as Status]);
-        }
-    };
-
     useEffect(() => {
         getMyDetails().then((details) => {
             setDiscordDetails(details);
-            handleStatusChange(details.discord_status);
-            console.log(details)
         });
     }, []);
 
@@ -61,11 +42,6 @@ export default function Home( {loading }: Props) {
                         }
                     </ul>
                 </div>
-
-                {/*<div className={"flex flex-row gap-4"}>
-                        <p>DISCORD: </p>
-                        <div className={`w-8 h-8 rounded-full ${color}`}></div>
-                    </div>*/}
             </main>
         </>
     )

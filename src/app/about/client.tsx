@@ -2,7 +2,6 @@ import {AboutMeLink} from "@/components/aboutmeLink";
 import {Icon} from "@iconify/react";
 import {technologies} from "@/util/technologies";
 import {TechnologyCard} from "@/components/technologyCard";
-import {getMyDetails} from "@/util/lanyard";
 import {UserInfo} from "@/types/lanyard";
 import React from "react";
 
@@ -29,14 +28,14 @@ export default function About({discord}: Props) {
 
     if (discord?.listening_to_spotify) {
         if (discord.spotify?.song) {
-            songName = discord.spotify?.song.substring(0, 20);
+            songName = discord.spotify.song.substring(0, 20);
             if (discord.spotify.song.length > 20) {
                 songName += "...";
             }
         }
 
         if (discord.spotify?.artist) {
-            artistName = discord.spotify?.artist.substring(0, 20);
+            artistName = discord.spotify.artist.substring(0, 20);
             if (discord.spotify.artist.length > 20) {
                 artistName += "...";
             }
@@ -108,8 +107,6 @@ export default function About({discord}: Props) {
                                         <img className={"w-5"} src="https://cdn.discordapp.com/badge-icons/6bdc42827a38498929a4920da12695d9.png" />
                                     </div>
                                     <div className={"flex flex-row items-center gap-2"}>
-                                        {/*<Icon icon={"mdi:music"} />
-                                    <p className={"opacity-80"}>Separ - kde sme</p>*/}
                                         {
                                             discord?.listening_to_spotify ? <div className={"flex flex-row items-center gap-2"}>
                                                 <Icon icon={"mdi:music"} width={20} height={20} />
