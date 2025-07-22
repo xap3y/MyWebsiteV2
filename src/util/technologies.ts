@@ -18,10 +18,10 @@ export const technologies: Technology[] = [
         label: "Spring Boot",
         icon: "bxl:spring-boot"
     },
-    {
+    /*{
         label: "Bun.sh",
         icon: "devicon-plain:bun"
-    },
+    },*/
     {
         label: "Gradle",
         icon: "file-icons:gradle"

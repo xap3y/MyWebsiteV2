@@ -18,7 +18,7 @@ export default function Projects() {
 
                 </div>
 
-                <p className={"text-center text-5xl opacity-80 my-32"}>More coming soon!</p>
+                {/*<p className={"text-center text-5xl opacity-80 my-32"}>More coming soon!</p>*/}
                 <div className={"mt-40 w-0.5 h-0.5"}></div>
             </main>
         </>

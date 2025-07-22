@@ -3,7 +3,7 @@ import {Project} from "@/types/project";
 export const projects: Project[] = [
     {
         name: "XAP3Y.tech",
-        url: "https://xap3y.tech",
+        url: "https://xap3y.fun",
         description: "My personal website, built with TS, React, Next.js and Tailwind CSS. Hosted on Vercel.",
         tags: [
             "https://img.shields.io/badge/Next.js-black?logo=next.js&logoColor=white",
@@ -15,12 +15,7 @@ export const projects: Project[] = [
             label: "Source",
             href: "https://github.com/xap3y/MyWebsiteV2",
             icon: "mdi:github",
-        },
-        gallery: [
-            "https://imgur.com/LjE16ry",
-            "https://call.xap3y.tech/v1/image/get/GFK0K6WN",
-            "https://call.xap3y.tech/v1/image/get/PJ2M6WM8",
-        ]
+        }
     },
     {
         name: "Space",
@@ -36,23 +31,23 @@ export const projects: Project[] = [
         ],
         left_button: {
             label: "View portal",
-            href: "https://space.xap3y.tech",
+            href: "https://xap3y.space",
         },
         right_button: {
             label: "API Docs",
-            href: "https://space.xap3y.tech/docs",
+            href: "https://docs.xap3y.space",
         },
     },
     {
         name: "XaGUI",
-        url: "https://xagui.xap3y.tech",
+        url: "https://xagui.xap3y.space",
         description: "Lightweight Minecraft menu API. This API allows you to easily set button actions, define onClose and onOpen actions, and perform fast icon updates without reopening the GUI. You can also create multi-page GUI's.",
         tags: [
             "https://img.shields.io/badge/Kotlin-%237F52FF.svg?logo=kotlin&logoColor=white"
         ],
         right_button: {
             label: "Docs + Examples",
-            href: "https://xagui.xap3y.tech",
+            href: "https://xagui.xap3y.space",
         },
         left_button: {
             label: "Maven central",
@@ -61,14 +56,14 @@ export const projects: Project[] = [
     },
     {
         name: "Connect4",
-        url: "https://r.xap3y.tech/POBOYP9W",
+        url: "https://www.spigotmc.org/resources/connect-four-1v1-gui-minigame-1-8-8-1-21.117864/",
         description: "1vs1 Connect4 GUI minigame for Minecraft servers. It is created using my GUI library XaGUI and it's fully compatible with any Minecraft server bukkit platform and versions up to 1.21.x",
         tags: [
             "https://img.shields.io/badge/Kotlin-%237F52FF.svg?logo=kotlin&logoColor=white"
         ],
         right_button: {
             label: "SpigotMC",
-            href: "https://r.xap3y.tech/POBOYP9W",
+            href: "https://www.spigotmc.org/resources/connect-four-1v1-gui-minigame-1-8-8-1-21.117864/",
         },
         left_button: {
             label: "Source",
@@ -102,5 +97,37 @@ export const projects: Project[] = [
             href: "https://git.xap3y.tech/ravenode/Prison"
         }
     },
-
+    {
+        name: "McGeocaching",
+        description: "Geocaching remake for Minecraft. Including BlueMap API integration, custom GUI menu and unique features.",
+        tags: [
+            "https://img.shields.io/badge/Java-%23ED8B00.svg?logo=openjdk&logoColor=white"
+        ],
+        left_button: {
+            label: "Source",
+            href: "https://github.com/xap3y/McGeocaching"
+        }
+    },
+    {
+        name: "RandomEvent Plugin", //Players need to do random event every 30 mins, like craft apple, gest most mob kills, get drunk first, etc.
+        description: "A plugin for Minecraft servers that adds random events to the game. Players need to do random event every 30 mins, like craft something, get most mob kills, get drunk first (Brewery hook), etc.",
+        tags: [
+            "https://img.shields.io/badge/Java-%23ED8B00.svg?logo=openjdk&logoColor=white"
+        ],
+        left_button: {
+            label: "Source",
+            href: "https://github.com/xap3y/RandomEvent"
+        }
+    },
+    {
+        name: "EggHunt Plugin",
+        description: "A plugin for Minecraft servers that adds Easter egg hunt to the game. Players need to find eggs hidden around the map and collect them.",
+        tags: [
+            "https://img.shields.io/badge/Java-%23ED8B00.svg?logo=openjdk&logoColor=white"
+        ],
+        left_button: {
+            label: "Source",
+            href: "https://github.com/xap3y/McGeocaching"
+        }
+    },
 ]
