@@ -20,14 +20,17 @@ export const projects: Project[] = [
     {
         name: "Space",
         url: "https://space.xap3y.tech",
-        description: "API made with Java and Spring Boot, and a frontend made with React and Next.js. Inspired by pays.host",
+        description: "Image/file hosting service, pastebin host, temp email and URL shortener. API made with Java and Spring Boot, and a frontend made with React and Next.js. Inspired by pays.host",
         tags: [
             "https://img.shields.io/badge/Java-%23ED8B00.svg?logo=openjdk&logoColor=white",
             "https://img.shields.io/badge/Spring%20Boot-6DB33F?logo=springboot&logoColor=fff",
             "https://img.shields.io/badge/MariaDB-003545?logo=mariadb&logoColor=white",
             "https://img.shields.io/badge/React-%2320232a.svg?logo=react&logoColor=%2361DAFB",
             "https://img.shields.io/badge/Next.js-black?logo=next.js&logoColor=white",
-            "https://img.shields.io/badge/TypeScript-3178C6?logo=typescript&logoColor=fff"
+            "https://img.shields.io/badge/TypeScript-3178C6?logo=typescript&logoColor=fff",
+            "https://img.shields.io/badge/Cloudflare-Workers-orange?logo=cloudflare",
+            "https://img.shields.io/static/v1?label=%20&message=Cloudflare%20R2&color=222&logo=Cloudflare"
+
         ],
         left_button: {
             label: "View portal",
