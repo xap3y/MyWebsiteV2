@@ -36,7 +36,7 @@ export default function ProjectCard({ project }: { project: Project }) {
     }, []);
 
     return (
-        <div className={"rounded-lg border-4 border-secondary bg-primary_light lg:w-[430px] w-72"}>
+        <div className={"box-primary lg:w-[430px] w-72"}>
 
             { large_image && <div className={"h-44 rounded-t-lg bg-no-repeat bg-cover bg-center"} style={{ backgroundImage: "url(" + large_image + ")" } }></div> }
 

@@ -134,7 +134,7 @@ export function Navigation({animations, setValue}: Props) {
 
                     {/* Desktop ONLY */}
                     <nav
-                        className={`hidden lg:flex rounded-xl bg-secondary shadow-xl border-battleship_gray gap-5 items-center px-5 py-3 mr-10 ${animations ? "animate-fadeInRight" : ""}`}>
+                        className={`hidden lg:flex box-primary shadow-xl gap-5 items-center px-5 py-3 mr-10 ${animations ? "animate-fadeInRight" : ""}`}>
                         <NavButton onClick={() => handleClick("home")} icon={<FaHome size={30}/>} label="HOME" route="/home"/>
                         <VerLine/>
                         <NavButton onClick={() => handleClick("about")} icon={<IoMdInformationCircleOutline size={30}/>} label="ABOUT" route="/about"/>

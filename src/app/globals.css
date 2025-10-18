@@ -9,6 +9,12 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer components {
+    .box-primary {
+        @apply bg-primary2 border-4 border-primary0 rounded-lg;
+    }
+}
+
 .custom-scroll::-webkit-scrollbar {
    height: 6px;
 }

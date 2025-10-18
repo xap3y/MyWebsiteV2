@@ -10,6 +10,9 @@ export default {
     extend: {
       colors: {
         primary: "#171717",
+        primary1: "#0A0A0A",
+        primary2: "#101010",
+        primary0: "#1A1A1A",
         secondary: "#1c1c1c",
         secondary_light: "#333333",
         primary_light: "#242424",
@@ -23,7 +26,7 @@ export default {
         telegramBrightest: "#60beff",
       },
       backgroundImage: {
-        primaryDotted: "radial-gradient(#242424 1px, #171717 1px)",
+        primaryDotted: "radial-gradient(#262626 1px, #0A0A0A 1px)",
         primaryDottedFooter: "radial-gradient(#D5D5B8 1px, #ECECE2 1px)",
       },
       backgroundSize: {
