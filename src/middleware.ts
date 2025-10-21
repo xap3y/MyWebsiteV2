@@ -2,7 +2,7 @@ import {NextFetchEvent, NextRequest, NextResponse} from "next/server";
 
 const DISCORD_WEBHOOK_URL = process.env.DSC || "";
 
-const blockedUserAgents = ["whatsapp", "facebook", "python", "curl", "postman", "bot", "crawl"];
+const blockedUserAgents = ["whatsapp", "unknown", "facebook", "python", "curl", "postman", "bot", "crawl"];
 
 export function middleware(req: NextRequest, event: NextFetchEvent) {
 
