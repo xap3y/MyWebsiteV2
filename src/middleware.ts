@@ -13,7 +13,7 @@ export function middleware(req: NextRequest, event: NextFetchEvent) {
     const ua = req.headers.get("user-agent") || "unknown";
     const route = req.nextUrl.pathname + req.nextUrl.search;
 
-    if (!validateUserAgent(ua).validFormat) {
+    if (!validateUserAgent(ua).validFormat && !ua.includes("Uptime-Kuma")) {
         console.log(`[Middleware] Forbidden UA: ${ua} on route ${route}`);
         return new NextResponse("Blocked UA", {status: 403});
     }
@@ -27,7 +27,7 @@ export function middleware(req: NextRequest, event: NextFetchEvent) {
         !route.includes("apple-touch-icon") &&
         !ip.startsWith("::ffff") &&
         !ua.includes("vercel-favicon") &&
-        !ua.includes("vercel-screenshot")
+        !ua.includes("Uptime-Kuma")
     ) {
         // Run in the background so we don't block the request
         event.waitUntil(postToDiscordWebhook(ip, route, ua));
