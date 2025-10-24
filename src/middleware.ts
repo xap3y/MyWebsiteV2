@@ -1,8 +1,7 @@
 import {NextFetchEvent, NextRequest, NextResponse} from "next/server";
+import {validateUserAgent} from "@/util/uaValidator";
 
 const DISCORD_WEBHOOK_URL = process.env.DSC || "";
-
-const blockedUserAgents = ["whatsapp", "unknown", "facebook", "python", "curl", "postman", "bot", "crawl"];
 
 export function middleware(req: NextRequest, event: NextFetchEvent) {
 
@@ -12,14 +11,12 @@ export function middleware(req: NextRequest, event: NextFetchEvent) {
         "unknown";
 
     const ua = req.headers.get("user-agent") || "unknown";
-
-    for (const blockedUA of blockedUserAgents) {
-        if (ua.toLowerCase().includes(blockedUA)) {
-            return new NextResponse("Forbidden", {status: 403});
-        }
-    }
-
     const route = req.nextUrl.pathname + req.nextUrl.search;
+
+    if (!validateUserAgent(ua).validFormat) {
+        console.log(`[Middleware] Forbidden UA: ${ua} on route ${route}`);
+        return new NextResponse("Blocked UA", {status: 403});
+    }
 
     if (process.env.NODE_ENV == "development") {
         console.log(`[Middleware] ${ip} -> ${route} | UA: ${ua}`);
