@@ -146,15 +146,42 @@ export function Navigation({animations, setValue}: Props) {
 
                     {/* Mobile & Tablet ONLY */}
                     <nav
-                        className={`z-50 lg:hidden fixed bottom-0 left-0 w-full bg-primary_light p-4 flex overflow-x-auto overflow-y-hidden scrollbar-hide justify-center gap-4 ${animations ? "animate-fadeInBottom" : ""}`}>
-                        <NavButtonMobile onClick={() => handleClick("home")} className={animations ? "animate-fadeInBottom" : ""} icon={<FaHome size={30}/>} label="Home"
-                                         route="/home"/>
-                        <NavButtonMobile onClick={() => handleClick("about")} className={animations ? "animate-fadeInBottom2" : ""}
-                                         icon={<IoMdInformationCircleOutline size={30}/>} label="About" route="/about"/>
-                        <NavButtonMobile onClick={() => handleClick("projects")} className={animations ? "animate-fadeInBottom3" : ""} icon={<HiOutlineCollection size={30}/>}
-                                         label="Projects" route="/projects"/>
-                        <NavButtonMobile onClick={() => handleClick("links")} className={animations ? "animate-fadeInBottom4" : ""} icon={<RiLinksFill size={30}/>}
-                                         label="LinkTree" route="/links"/>
+                        className={`z-50 lg:hidden fixed bottom-0 left-0 w-full pb-[calc(env(safe-area-inset-bottom)+12px)] pt-3 px-3 ${
+                            animations ? "animate-fadeInBottom" : ""
+                        }`}
+                    >
+                        <div className="box-primary bg-primary_light/70 backdrop-blur-md border border-white/10 rounded-2xl shadow-2xl">
+                            <div className="flex items-center justify-between gap-2 px-2 py-2">
+                                <NavButtonMobile
+                                    onClick={() => handleClick("home")}
+                                    className={animations ? "animate-fadeInBottom" : ""}
+                                    icon={<FaHome size={22} />}
+                                    label="Home"
+                                    route="/home"
+                                />
+                                <NavButtonMobile
+                                    onClick={() => handleClick("about")}
+                                    className={animations ? "animate-fadeInBottom2" : ""}
+                                    icon={<IoMdInformationCircleOutline size={22} />}
+                                    label="About"
+                                    route="/about"
+                                />
+                                <NavButtonMobile
+                                    onClick={() => handleClick("projects")}
+                                    className={animations ? "animate-fadeInBottom3" : ""}
+                                    icon={<HiOutlineCollection size={22} />}
+                                    label="Projects"
+                                    route="/projects"
+                                />
+                                <NavButtonMobile
+                                    onClick={() => handleClick("links")}
+                                    className={animations ? "animate-fadeInBottom4" : ""}
+                                    icon={<RiLinksFill size={22} />}
+                                    label="LinkTree"
+                                    route="/links"
+                                />
+                            </div>
+                        </div>
                     </nav>
                 </div>
             </header>

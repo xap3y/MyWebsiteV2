@@ -24,120 +24,71 @@ export const linktree = [
     {
         name: "My site",
         link: "https://xap3y.fun",
-        desc: "",
-        backgroundcolor: "DimGrey",
+        desc: "Portfolio & projects",
         img: "mdi:home",
+        // subtle “vercel-ish” dark gradient
+        bg: "bg-gradient-to-r from-zinc-950 via-zinc-900 to-zinc-950",
     },
     {
         name: "GitHub",
         link: "https://github.com/xap3y",
         desc: "@xap3y",
-        backgroundcolor: "gray",
         img: "mdi:github",
-    },
-    /*{
-        name: "Instagram",
-        link: "https://www.instagram.com/xap3y.dev/",
-        desc: "@xap3y.dev",
-        backgroundcolor: "purple",
-        img: "mdi:instagram",
-    },*/
-    {
-        name: "Spigot MC",
-        link: "https://www.spigotmc.org/members/minecubek.797215/",
-        desc: "@Minecubek",
-        backgroundcolor: "orange",
-        img: "simple-icons:spigotmc",
+        bg: "bg-gradient-to-r from-zinc-950 via-slate-900 to-zinc-900",
     },
     {
         name: "Discord",
         link: "https://discordapp.com/users/853316867544449025",
-        backgroundcolor: "#7289da",
+        desc: "@xap3y",
         img: "ic:baseline-discord",
-        desc: "@xap3y",
-    },
-    {
-        name: "Ko-Fi",
-        link: "https://ko-fi.com/xap3y",
-        backgroundcolor: "pink",
-        img: "simple-icons:kofi",
-        desc: "@xap3y",
-    },
-    {
-        name: "SkyCrypt",
-        link: "https://sky.shiiyu.moe/stats/XAP3Y/Raspberry",
-        backgroundcolor: "green",
-        img: "mdi:graph-box",
-        desc: "@xap3y",
-    },
-    /*    {
-            name: "Fiverr",
-            link: "https://www.fiverr.com/s/34RWkm",
-            backgroundcolor: "green",
-            img: "jam:fiverr",
-            desc: "@xapey",
-        },
-        {
-            name: "SnapChat",
-            link: "https://t.snapchat.com/Ke6oWvaV",
-            backgroundcolor: "#FFFC00",
-            color: "#FFFFFF",
-            img: "mage:snapchat",
-            desc: "@xap3y",
-        },*/
-    {
-        name: "Space",
-        link: "https://xap3y.space/user/xap3y",
-        backgroundcolor: "black",
-        img: "token:space",
-        desc: "@xap3y",
-        color: "#FFFFFF",
+        bg: "bg-gradient-to-r from-[#5865F2] via-[#4752C4] to-[#3B3F9E]",
     },
     {
         name: "Telegram",
         link: "https://t.me/xap3y",
-        backgroundcolor: "#24A1DE",
+        desc: "@xap3y",
         img: "ic:baseline-telegram",
+        bg: "bg-gradient-to-r from-[#2AABEE] via-[#229ED9] to-[#1C86EE]",
+    },
+    {
+        name: "Ko-fi",
+        link: "https://ko-fi.com/xap3y",
+        desc: "Support my work",
+        img: "simple-icons:kofi",
+        bg: "bg-gradient-to-r from-[#FF5E5B] via-[#FF3D71] to-[#FF8A00]",
+    },
+    {
+        name: "SpigotMC",
+        link: "https://www.spigotmc.org/members/minecubek.797215/",
+        desc: "@Minecubek",
+        img: "simple-icons:spigotmc",
+        bg: "bg-gradient-to-r from-[#F59E0B] via-[#F97316] to-[#EF4444]",
+    },
+    {
+        name: "Modrinth",
+        link: "https://modrinth.com/user/xap3y",
         desc: "@xap3y",
-        color: "#FFFFFF",
-    }
+        img: "simple-icons:modrinth",
+        bg: "bg-gradient-to-r from-[#1BD96A] via-[#16A34A] to-[#15803D]",
+    },
+    {
+        name: "SkyCrypt",
+        link: "https://sky.shiiyu.moe/stats/XAP3Y/Raspberry",
+        desc: "Stats",
+        img: "mdi:graph-box",
+        bg: "bg-gradient-to-r from-emerald-700 via-emerald-600 to-teal-600",
+    },
     /*{
-        name: "Twitter",
-        link: "https://twitter.com/xap3xdev",
-        backgroundcolor: "blue",
-        img: "mdi:twitter",
-        desc: "@xap3xdev",
-        color: "#FFFFFF",
-    },
-    {
-        name: "NameMC",
-        link: "https://namemc.com/profile/XAP3Y.3",
-        backgroundcolor: "#12161A",
-        img: "simple-icons:namemc",
+        name: "Space",
+        link: "https://xap3y.space/user/xap3y",
         desc: "@xap3y",
-        color: "#FFFFFF",
-    },
-    {
-        name: "TryHackMe",
-        link: "https://tryhackme.com/p/xap3y",
-        backgroundcolor: "#1C2538",
-        img: "simple-icons:tryhackme",
-        desc: "@xap3y",
-        color: "#C31818",
-    },
-    {
-        name: "Threads",
-        link: "https://threads.dev/u/xap3y",
-        backgroundcolor: "black",
-        img: "hugeicons:threads",
-        desc: "@xap3y",
-        color: "#FFFFFF",
-    }*/
+        img: "token:space",
+        bg: "bg-gradient-to-r from-zinc-950 via-zinc-900 to-zinc-800",
+    },*/
 ] satisfies {
     name: string;
     link: string;
     desc?: string;
-    backgroundcolor: string;
     img?: string;
-    color?: string;
+    bg: string; // tailwind background classes (gradient)
 }[];

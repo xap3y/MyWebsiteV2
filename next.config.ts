@@ -5,7 +5,7 @@ const nextConfig: NextConfig = {
         remotePatterns: [
             {
                 protocol: 'https',
-                hostname: 'call.xap3y.tech',
+                hostname: 'call.xap3y.fun',
                 port: '',
                 pathname: '/v1/**',
                 search: '',

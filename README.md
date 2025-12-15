@@ -1,2 +1,2 @@
-## [xap3y.tech](https://xap3y.tech)
+## [xap3y.fun](https://xap3y.fun)
 

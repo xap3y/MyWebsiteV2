@@ -1,36 +1,70 @@
-import {linktree} from "@/util/config";
-import {Icon} from "@iconify/react";
-import React from "react";
+'use client';
 
+import { linktree } from "@/util/config";
+import { Icon } from "@iconify/react";
+import React from "react";
 
 export default function Links() {
     return (
-        <>
-            <main className={"animate-fadeBlur"}>
+        <main className="animate-fadeBlur">
+            <div className="mx-auto max-w-2xl px-4 sm:px-6 lg:px-8 pt-10">
+                <h1 className="text-4xl sm:text-5xl font-bold text-center">
+                    Linktree
+                </h1>
+                <p className="mt-3 text-center text-white/60">
+                    Quick links to my profiles and platforms.
+                </p>
 
-                <div className={"flex flex-col items-center gap-8"}>
-                    <h1 className={"text-4xl font-bold mt-10 border-b-2 p-2 text-center"}>Linktree</h1>
-
-                    <div className={"flex flex-col items-center gap-2"}>
-                        {
-                            linktree.map((link) => (
-                                <a key={link.name} href={link.link} draggable={false}>
-                                    <div className={"rounded p-2 bg-primary shadow-xl transition-all duration-300 hover:bg-primary_light w-56"}>
-                                        <div className={"rounded border-2 border-primary_light bg-primary hover:bg-primary_light hover:border-primary p-4"}>
-                                                <div className={"flex flex-row items-center gap-2 justify-center select-none"}>
-                                                    <Icon icon={link.img} width={32} height={32} />
-                                                    <h2 className={"text-2xl font-bold"}>{link.name}</h2>
-                                                </div>
-                                        </div>
+                <div className="mt-10 grid grid-cols-1 gap-3">
+                    {linktree.map((link) => (
+                        <a
+                            key={link.name}
+                            href={link.link}
+                            target="_blank"
+                            rel="noreferrer"
+                            draggable={false}
+                            className="group block"
+                        >
+                            {/* Keep your border style from box-primary, but make the INSIDE use platform bg */}
+                            <div className="box-primary p-0 overflow-hidden">
+                                <div
+                                    className={[
+                                        "rounded-[6px]", // sits inside the box-primary border
+                                        link.bg, // platform gradient background
+                                        "px-4 sm:px-5 py-4",
+                                        "flex items-center gap-4",
+                                        "transition-all duration-200",
+                                        "group-hover:brightness-110 group-hover:shadow-xl",
+                                        "group-active:scale-[0.99]",
+                                    ].join(" ")}
+                                >
+                                    {/* icon chip to keep readability on bright gradients */}
+                                    <div className="h-11 w-11 rounded-xl bg-black/25 border border-white/15 flex items-center justify-center shrink-0">
+                                        {link.img ? <Icon icon={link.img} width={26} height={26} /> : null}
                                     </div>
-                                </a>
-                            ))
-                        }
-                    </div>
+
+                                    <div className="min-w-0 flex-1">
+                                        <h2 className="text-lg sm:text-xl font-bold truncate">
+                                            {link.name}
+                                        </h2>
+                                        {link.desc ? (
+                                            <p className="mt-0.5 text-xs sm:text-sm text-white/80 truncate">
+                                                {link.desc}
+                                            </p>
+                                        ) : null}
+                                    </div>
+
+                                    <div className="text-white/80 group-hover:text-white transition-colors select-none">
+                                        →
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    ))}
                 </div>
 
-                <div className={"mt-40 w-0.5 h-0.5 lg:h-0 lg:w-0"}></div>
-            </main>
-        </>
+                <div className="mt-16 h-1" />
+            </div>
+        </main>
     );
 }
