@@ -161,7 +161,7 @@ export default function ProjectModal({
                                                                     setActiveImageIndex((i) =>
                                                                         i === null
                                                                             ? null
-                                                                            : Math.min(project.gallery.length - 1, i + 1)
+                                                                            : Math.min((project?.gallery?.length || 0) - 1, i + 1)
                                                                     )
                                                                 }
                                                                 className="rounded-lg px-3 py-1.5 text-xs box-primary disabled:opacity-50"

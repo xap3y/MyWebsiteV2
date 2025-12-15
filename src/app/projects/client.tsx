@@ -6,7 +6,7 @@ import ProjectCard from "@/components/ProjectCard";
 import ProjectModal from "@/components/ProjectModal";
 
 export default function Projects() {
-    const [openName, setOpenName] = useState(null);
+    const [openName, setOpenName] = useState<string | null>(null);
 
     const selectedProject = useMemo(
         () => projects.find((p) => p.name === openName) || null,
