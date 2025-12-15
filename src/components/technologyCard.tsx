@@ -1,19 +1,44 @@
-import {Icon} from "@iconify/react";
+'use client';
 
-interface Props {
-    label: string;
-    icon: string;
-}
+import React from "react";
+import { Icon } from "@iconify/react";
 
-export function TechnologyCard({ label, icon }: Props) {
+export function TechnologyCard({ label, icon }: { label: string; icon: string }) {
     return (
-        <>
-            <div className={"p-1 bg-primary_light hover:bg-secondary rounded"}>
-                <div className={"bg-primary_light border-secondary hover:bg-secondary hover:border-primary_light duration-150 transition-all rounded border-4 p-2 flex flex-ror gap-2 justify-center items-center"}>
-                    <Icon icon={icon} width={30} height={30} />
-                    <p>{label}</p>
-                </div>
-            </div>
-        </>
-    )
+        <div
+            className={[
+                // “pill button” look
+                "group inline-flex items-center gap-2",
+                "px-3.5 py-2",
+                "rounded-2xl",
+                // keep your theme but make it feel like a button
+                "bg-primary2/60 border border-primary0/70",
+                "transition-all duration-200",
+                "hover:bg-primary2/80 hover:border-primary0",
+                "hover:-translate-y-0.5 hover:shadow-xl",
+                "active:translate-y-0 active:shadow-none active:scale-[0.99]",
+                "select-none",
+            ].join(" ")}
+        >
+      <span
+          className={[
+              "h-8 w-8 rounded-xl",
+              "bg-black/20 border border-white/10",
+              "flex items-center justify-center",
+              "transition-colors duration-200",
+              "group-hover:bg-black/30",
+          ].join(" ")}
+      >
+          {
+              (icon.startsWith("http") || icon.startsWith("/")) ? (
+                  <img src={icon} alt={label} className="w-5 h-5" />
+              ) : <Icon icon={icon} width={18} height={18} />
+          }
+      </span>
+
+            <span className="text-sm font-semibold text-white/90 whitespace-nowrap">
+        {label}
+      </span>
+        </div>
+    );
 }

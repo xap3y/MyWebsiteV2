@@ -8,7 +8,8 @@ export const technologies: Technology[] = [
     },
     {
         label: "Kotlin",
-        icon: "mdi:language-kotlin"
+        icon: "mdi:language-kotlin",
+        link: "https://fuckjava.com/"
     },
     {
         label: "TypeScript",
@@ -16,7 +17,8 @@ export const technologies: Technology[] = [
     },
     {
         label: "Spring Boot",
-        icon: "bxl:spring-boot"
+        icon: "bxl:spring-boot",
+        link: "https://start.spring.io/"
     },
     /*{
         label: "Bun.sh",
@@ -52,10 +54,16 @@ export const technologies: Technology[] = [
     },
     {
         label: "IntelliJ IDEA",
-        icon: "devicon-plain:intellij"
+        icon: "/icons/idea.svg",
+        link: "https://www.jetbrains.com/idea/"
     },
     {
         label: "EndeavourOS",
         icon: "simple-icons:endeavouros"
+    },
+    {
+        label: "PaperMC",
+        icon: "/icons/paper.svg",
+        link: "https://jd.papermc.io/paper/1.21.11/"
     }
 ]
