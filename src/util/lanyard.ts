@@ -1,4 +1,4 @@
-import { LanyardResponse, UserInfo } from "@/types/lanyard";
+import { LanyardResponse } from "@/types/lanyard";
 
 const URL_BASE = "https://api.lanyard.rest/v1/users/853316867544449025";
 
