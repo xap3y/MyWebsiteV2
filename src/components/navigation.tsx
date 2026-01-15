@@ -14,7 +14,7 @@ interface Props {
     setValue?: React.Dispatch<React.SetStateAction<string>>;
 }
 
-export function Navigation({animations, setValue}: Props) {
+export function Navigation({animations, value, setValue}: Props) {
 
     const [header, setHeader] = useState("XAP3Y");
     const [loading, setLoading] = useState(false);
@@ -145,42 +145,32 @@ export function Navigation({animations, setValue}: Props) {
                     </nav>
 
                     {/* Mobile & Tablet ONLY */}
-                    <nav
-                        className={`z-50 lg:hidden fixed bottom-0 left-0 w-full pb-[calc(env(safe-area-inset-bottom)+12px)] pt-3 px-3 ${
-                            animations ? "animate-fadeInBottom" : ""
-                        }`}
-                    >
-                        <div className="box-primary bg-primary_light/70 backdrop-blur-md border border-white/10 rounded-2xl shadow-2xl">
-                            <div className="flex items-center justify-between gap-2 px-2 py-2">
-                                <NavButtonMobile
-                                    onClick={() => handleClick("home")}
-                                    className={animations ? "animate-fadeInBottom" : ""}
-                                    icon={<FaHome size={22} />}
-                                    label="Home"
-                                    route="/home"
-                                />
-                                <NavButtonMobile
-                                    onClick={() => handleClick("about")}
-                                    className={animations ? "animate-fadeInBottom2" : ""}
-                                    icon={<IoMdInformationCircleOutline size={22} />}
-                                    label="About"
-                                    route="/about"
-                                />
-                                <NavButtonMobile
-                                    onClick={() => handleClick("projects")}
-                                    className={animations ? "animate-fadeInBottom3" : ""}
-                                    icon={<HiOutlineCollection size={22} />}
-                                    label="Projects"
-                                    route="/projects"
-                                />
-                                <NavButtonMobile
-                                    onClick={() => handleClick("links")}
-                                    className={animations ? "animate-fadeInBottom4" : ""}
-                                    icon={<RiLinksFill size={22} />}
-                                    label="LinkTree"
-                                    route="/links"
-                                />
-                            </div>
+                    <nav className="z-50 lg:hidden fixed bottom-0 left-0 w-full border-t border-neutral-800 bg-black/80 backdrop-blur-md px-4 pb-[calc(env(safe-area-inset-bottom)+10px)] pt-2">
+                        <div className="flex items-center justify-between max-w-md mx-auto">
+                            <VercelTab
+                                active={value === "home"}
+                                onClick={() => handleClick("home")}
+                                icon={<FaHome size={20} />}
+                                label="Home"
+                            />
+                            <VercelTab
+                                active={value === "about"}
+                                onClick={() => handleClick("about")}
+                                icon={<IoMdInformationCircleOutline size={20} />}
+                                label="About"
+                            />
+                            <VercelTab
+                                active={value === "projects"}
+                                onClick={() => handleClick("projects")}
+                                icon={<HiOutlineCollection size={20} />}
+                                label="Projects"
+                            />
+                            <VercelTab
+                                active={value === "links"}
+                                onClick={() => handleClick("links")}
+                                icon={<RiLinksFill size={20} />}
+                                label="Links"
+                            />
                         </div>
                     </nav>
                 </div>
@@ -190,4 +180,30 @@ export function Navigation({animations, setValue}: Props) {
             <div className={"w-full h-5"}></div>
         </>
     )
+}
+
+function VercelTab({ active, onClick, icon, label }: { active: boolean, onClick: () => void, icon: React.ReactNode, label: string }) {
+    return (
+        <button
+            onClick={onClick}
+            className={`flex flex-1 flex-col items-center gap-1 py-2 px-1 transition-all duration-200 ${
+                active ? "text-white" : "text-neutral-500 hover:text-neutral-300"
+            }`}
+        >
+            <div className="relative">
+                {icon}
+                {/* Optional: Subtle glow for active item */}
+                {active && (
+                    <div className="absolute inset-0 blur-md bg-white/20 -z-10" />
+                )}
+            </div>
+            <span className="text-[11px] font-medium tracking-tight">
+                {label}
+            </span>
+            {/* The Vercel "Active" indicator - a simple, sharp top border or bottom line */}
+            <div className={`absolute top-0 w-1/4 h-[2px] bg-white transition-transform duration-300 ${
+                active ? "scale-x-100" : "scale-x-0"
+            }`} />
+        </button>
+    );
 }

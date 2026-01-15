@@ -81,7 +81,7 @@ export default function page() {
 
             {isLoaded && (
                 <>
-                    <Navigation setValue={setValue} animations={true} />
+                    <Navigation setValue={setValue} value={value} animations={true} />
 
                     <Index2 value={value} discord={discordDetails} />
                 </>

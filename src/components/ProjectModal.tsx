@@ -13,29 +13,37 @@ export default function ProjectModal({
     project: Project | null;
     onClose: () => void;
 }) {
-    // Hooks MUST be before any early returns (fixes hook order warning)
     const [activeImageIndex, setActiveImageIndex] = useState<number | null>(null);
+    const [isMobile, setIsMobile] = useState(false);
+
+    // Track mobile breakpoint
+    useEffect(() => {
+        const mq = typeof window !== "undefined" ? window.matchMedia("(max-width: 640px)") : null;
+        const setMatch = () => setIsMobile(Boolean(mq?.matches));
+        setMatch();
+        mq?.addEventListener("change", setMatch);
+        return () => mq?.removeEventListener("change", setMatch);
+    }, []);
 
     useEffect(() => {
         if (!open) return;
-
         const onKey = (e: KeyboardEvent) => {
-            if (e.key === "Escape") onClose();
+            if (e.key === "Escape") {
+                activeImageIndex !== null ? setActiveImageIndex(null) : onClose();
+            }
         };
         document.addEventListener("keydown", onKey);
         return () => document.removeEventListener("keydown", onKey);
-    }, [open, onClose]);
+    }, [open, onClose, activeImageIndex]);
 
-    // Close zoomed image when modal closes / project changes
     useEffect(() => {
         if (!open) setActiveImageIndex(null);
     }, [open, project]);
 
     if (!open || !project) return null;
 
-    const buttons = [project.left_button, project.right_button].filter(
-        Boolean
-    ) as ProjectButton[];
+    const buttons = [project.left_button, project.right_button].filter(Boolean) as ProjectButton[];
+    const galleryClamped = isMobile && (project.gallery?.length || 0) > 3;
 
     return (
         <div className="fixed inset-0 z-50">
@@ -79,7 +87,6 @@ export default function ProjectModal({
 
                         <h2 className="text-2xl sm:text-3xl font-bold">{project.name}</h2>
 
-                        {/* Tags: show ALL in modal, wrap (no scrollbar) */}
                         {project.tags?.length > 0 && (
                             <div className="mt-4 flex flex-wrap gap-2">
                                 {project.tags.map((tag) => (
@@ -99,7 +106,7 @@ export default function ProjectModal({
                             {project.description}
                         </p>
 
-                        {/* Gallery (wrap grid, click to zoom inline; no new tab) */}
+                        {/* Gallery */}
                         {project.gallery?.length ? (
                             <div className="mt-6">
                                 <div className="flex items-center justify-between">
@@ -109,7 +116,11 @@ export default function ProjectModal({
                   </span>
                                 </div>
 
-                                <div className="mt-3 flex flex-wrap gap-3">
+                                <div
+                                    className={`mt-3 flex flex-wrap gap-3 ${
+                                        galleryClamped ? "max-h-[14rem] overflow-y-auto" : ""
+                                    }`}
+                                >
                                     {project.gallery.map((src, idx) => (
                                         <button
                                             key={src}
@@ -130,62 +141,56 @@ export default function ProjectModal({
                                 </div>
 
                                 {activeImageIndex !== null && (
-                                    <div className="fixed inset-0 z-[60]">
-                                        <button
-                                            aria-label="Close image"
-                                            onClick={() => setActiveImageIndex(null)}
-                                            className="absolute inset-0 bg-black/70"
-                                        />
+                                    <div
+                                        className="fixed inset-0 z-[60] flex items-center justify-center p-4 sm:p-10 cursor-zoom-out"
+                                        onClick={() => setActiveImageIndex(null)} // Click anywhere on the backdrop to close
+                                    >
+                                        {/* Backdrop Overlay */}
+                                        <div className="absolute inset-0 bg-black/90 backdrop-blur-sm" />
 
-                                        <div className="absolute inset-0 flex items-center justify-center p-4">
-                                            <div className="relative max-w-5xl w-full">
-                                                <div className="box-primary overflow-hidden">
-                                                    <div className="flex items-center justify-between px-4 py-3 border-b border-white/5 bg-dark-grey3/60">
-                            <span className="text-xs text-white/60">
-                              {activeImageIndex + 1} / {project.gallery.length}
-                            </span>
-                                                        <div className="flex items-center gap-2">
-                                                            <button
-                                                                onClick={() =>
-                                                                    setActiveImageIndex((i) =>
-                                                                        i === null ? null : Math.max(0, i - 1)
-                                                                    )
-                                                                }
-                                                                className="rounded-lg px-3 py-1.5 text-xs box-primary disabled:opacity-50"
-                                                                disabled={activeImageIndex === 0}
-                                                            >
-                                                                Prev
-                                                            </button>
-                                                            <button
-                                                                onClick={() =>
-                                                                    setActiveImageIndex((i) =>
-                                                                        i === null
-                                                                            ? null
-                                                                            : Math.min((project?.gallery?.length || 0) - 1, i + 1)
-                                                                    )
-                                                                }
-                                                                className="rounded-lg px-3 py-1.5 text-xs box-primary disabled:opacity-50"
-                                                                disabled={activeImageIndex === project.gallery.length - 1}
-                                                            >
-                                                                Next
-                                                            </button>
-                                                            <button
-                                                                onClick={() => setActiveImageIndex(null)}
-                                                                className="rounded-lg px-3 py-1.5 text-xs box-primary"
-                                                            >
-                                                                Close
-                                                            </button>
-                                                        </div>
+                                        {/* Modal Content */}
+                                        <div
+                                            className="relative max-w-5xl w-full cursor-default"
+                                            onClick={(e) => e.stopPropagation()} // This prevents closing when clicking the image/controls
+                                        >
+                                            <div className="box-primary overflow-hidden shadow-2xl border border-white/10">
+                                                {/* Top Bar Controls */}
+                                                <div className="flex items-center justify-between px-4 py-3 border-b border-white/5 bg-neutral-900/80">
+                                                    <span className="text-xs font-medium text-white/60">
+                                                        {activeImageIndex + 1} / {project.gallery.length}
+                                                    </span>
+                                                    <div className="flex items-center gap-2">
+                                                        <button
+                                                            onClick={() => setActiveImageIndex((i) => (i === null ? null : Math.max(0, i - 1)))}
+                                                            className="rounded-lg px-3 py-1.5 text-xs box-primary disabled:opacity-30 disabled:cursor-not-allowed hover:bg-white/5"
+                                                            disabled={activeImageIndex === 0}
+                                                        >
+                                                            Prev
+                                                        </button>
+                                                        <button
+                                                            onClick={() => setActiveImageIndex((i) => (i === null ? null : Math.min((project?.gallery?.length || 0) - 1, i + 1)))}
+                                                            className="rounded-lg px-3 py-1.5 text-xs box-primary disabled:opacity-30 disabled:cursor-not-allowed hover:bg-white/5"
+                                                            disabled={activeImageIndex === project.gallery.length - 1}
+                                                        >
+                                                            Next
+                                                        </button>
+                                                        <button
+                                                            onClick={() => setActiveImageIndex(null)}
+                                                            className="rounded-lg px-3 py-1.5 text-xs box-primary"
+                                                        >
+                                                            Close
+                                                        </button>
                                                     </div>
+                                                </div>
 
-                                                    <div className="p-3 sm:p-4 flex items-center justify-center">
-                                                        <img
-                                                            src={project.gallery[activeImageIndex]}
-                                                            alt="zoomed"
-                                                            className="max-h-[75vh] w-auto max-w-full object-contain rounded-lg"
-                                                            draggable={false}
-                                                        />
-                                                    </div>
+                                                {/* Image Container */}
+                                                <div className="p-2 sm:p-4 flex items-center justify-center bg-black/20">
+                                                    <img
+                                                        src={project.gallery[activeImageIndex]}
+                                                        alt="zoomed"
+                                                        className="max-h-[70vh] w-auto max-w-full object-contain rounded-md shadow-lg"
+                                                        draggable={false}
+                                                    />
                                                 </div>
                                             </div>
                                         </div>
@@ -194,7 +199,6 @@ export default function ProjectModal({
                             </div>
                         ) : null}
 
-                        {/* Buttons */}
                         {buttons.length > 0 && (
                             <div className="mt-6 flex flex-wrap gap-2">
                                 {buttons.map((b) => (
