@@ -4,6 +4,8 @@ import About from "@/app/about/client";
 import Projects from "@/app/projects/client";
 import Links from "@/app/links/client";
 import {UserInfo} from "@/types/lanyard";
+import MinigamesPage from "@/app/minigames/page";
+import Minigames from "@/app/minigames/client";
 
 interface Props {
     value: string;
@@ -39,6 +41,13 @@ export default function Index2({ value, discord }: Props) {
                 (value == "links") &&
                 <>
                     <Links />
+                </>
+            }
+
+            {
+                (value == "minigames") &&
+                <>
+                    <Minigames />
                 </>
             }
         </>

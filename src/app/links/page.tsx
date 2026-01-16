@@ -7,7 +7,7 @@ export default function Page() {
     return (
         <>
 
-            <Navigation animations={false} />
+            <Navigation animations={false} back={true} />
 
             <Links />
 

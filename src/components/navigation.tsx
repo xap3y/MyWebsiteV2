@@ -7,18 +7,22 @@ import { RiLinksFill } from "react-icons/ri";
 import {NavButton, NavButtonMobile} from "@/components/navButton";
 import {VerLine} from "@/components/verLine";
 import React, {useEffect, useState} from "react";
+import {useRouter} from "next/navigation";
 
 interface Props {
     animations: boolean;
     value?: string;
     setValue?: React.Dispatch<React.SetStateAction<string>>;
+    back?: boolean;
 }
 
-export function Navigation({animations, value, setValue}: Props) {
+export function Navigation({animations, value, setValue, back}: Props) {
 
     const [header, setHeader] = useState("XAP3Y");
     const [loading, setLoading] = useState(false);
     const headers = ["XAP3Y", "ксапей"];
+
+    const router = useRouter();
 
     const decodeEffect = (target: string, cycles = 8, finalCycles = 5, interval = 150) => {
         const characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
@@ -102,6 +106,10 @@ export function Navigation({animations, value, setValue}: Props) {
     }, [header]);
 
     function handleClick(value: string) {
+        if (value === "goback") {
+            router.push("/")
+            return;
+        }
         if (setValue) {
             setValue(value);
         }
@@ -135,13 +143,23 @@ export function Navigation({animations, value, setValue}: Props) {
                     {/* Desktop ONLY */}
                     <nav
                         className={`hidden lg:flex box-primary shadow-xl gap-5 items-center px-5 py-3 mr-10 ${animations ? "animate-fadeInRight" : ""}`}>
-                        <NavButton onClick={() => handleClick("home")} icon={<FaHome size={30}/>} label="HOME" route="/home"/>
-                        <VerLine/>
-                        <NavButton onClick={() => handleClick("about")} icon={<IoMdInformationCircleOutline size={30}/>} label="ABOUT" route="/about"/>
-                        <VerLine/>
-                        <NavButton onClick={() => handleClick("projects")} icon={<HiOutlineCollection size={30}/>} label="PROJECTS" route="/projects"/>
-                        <VerLine/>
-                        <NavButton onClick={() => handleClick("links")} icon={<RiLinksFill size={30}/>} label="LINKTREE" route="/links"/>
+                        {
+                            back ?
+                                <>
+                                    <NavButton onClick={() => handleClick("goback")} icon={<FaHome size={30}/>} label="HOME" route="/home"/>
+                                </> :
+                                <>
+                                    <NavButton onClick={() => handleClick("home")} icon={<FaHome size={30}/>} label="HOME" route="/home"/>
+                                    <VerLine/>
+                                    <NavButton onClick={() => handleClick("about")} icon={<IoMdInformationCircleOutline size={30}/>} label="ABOUT" route="/about"/>
+                                    <VerLine/>
+                                    <NavButton onClick={() => handleClick("projects")} icon={<HiOutlineCollection size={30}/>} label="PROJECTS" route="/projects"/>
+                                    <VerLine/>
+                                    <NavButton onClick={() => handleClick("links")} icon={<RiLinksFill size={30}/>} label="LINKTREE" route="/links"/>
+                                    <VerLine/>
+                                    <NavButton onClick={() => handleClick("minigames")} icon={<RiLinksFill size={30}/>} label="MINIGAMES" route="/minigames"/>
+                                </>
+                        }
                     </nav>
 
                     {/* Mobile & Tablet ONLY */}
