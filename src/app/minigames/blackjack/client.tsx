@@ -532,7 +532,7 @@ export default function BlackJack() {
     const canDeal = phase != "playerTurn" && phase != "dealerTurn" && phase != "dealing"
 
     return (
-        <div className="min-h-screen w-full bg-transparent text-white">
+        <div className="w-full bg-transparent text-white lg:pb-0 pb-20">
             <div className="mx-auto max-w-6xl px-4 sm:px-6 py-8 sm:py-10">
                 <div className="mb-4 sm:mb-6 flex flex-col sm:flex-row sm:items-start sm:justify-between gap-3">
                     <div>

@@ -163,34 +163,49 @@ export function Navigation({animations, value, setValue, back}: Props) {
                     </nav>
 
                     {/* Mobile & Tablet ONLY */}
-                    <nav className="z-50 lg:hidden fixed bottom-0 left-0 w-full border-t border-neutral-800 bg-black/80 backdrop-blur-md px-4 pb-[calc(env(safe-area-inset-bottom)+10px)] pt-2">
-                        <div className="flex items-center justify-between max-w-md mx-auto">
-                            <VercelTab
-                                active={value === "home"}
-                                onClick={() => handleClick("home")}
-                                icon={<FaHome size={20} />}
-                                label="Home"
-                            />
-                            <VercelTab
-                                active={value === "about"}
-                                onClick={() => handleClick("about")}
-                                icon={<IoMdInformationCircleOutline size={20} />}
-                                label="About"
-                            />
-                            <VercelTab
-                                active={value === "projects"}
-                                onClick={() => handleClick("projects")}
-                                icon={<HiOutlineCollection size={20} />}
-                                label="Projects"
-                            />
-                            <VercelTab
-                                active={value === "links"}
-                                onClick={() => handleClick("links")}
-                                icon={<RiLinksFill size={20} />}
-                                label="Links"
-                            />
-                        </div>
-                    </nav>
+                    {back == undefined ? <>
+                        <nav className="z-50 lg:hidden fixed bottom-0 left-0 w-full border-t border-neutral-800 bg-black/80 backdrop-blur-md px-4 pb-[calc(env(safe-area-inset-bottom)+10px)] pt-2">
+                            <div className="flex items-center justify-between max-w-md mx-auto">
+                                <VercelTab
+                                    active={value === "home"}
+                                    onClick={() => handleClick("home")}
+                                    icon={<FaHome size={20} />}
+                                    label="Home"
+                                />
+                                <VercelTab
+                                    active={value === "about"}
+                                    onClick={() => handleClick("about")}
+                                    icon={<IoMdInformationCircleOutline size={20} />}
+                                    label="About"
+                                />
+                                <VercelTab
+                                    active={value === "projects"}
+                                    onClick={() => handleClick("projects")}
+                                    icon={<HiOutlineCollection size={20} />}
+                                    label="Projects"
+                                />
+                                <VercelTab
+                                    active={value === "links"}
+                                    onClick={() => handleClick("links")}
+                                    icon={<RiLinksFill size={20} />}
+                                    label="Links"
+                                />
+                            </div>
+                        </nav>
+                    </> :
+                        <>
+                            <nav className="z-50 lg:hidden fixed bottom-0 left-0 w-full border-t border-neutral-800 bg-black/80 backdrop-blur-md px-4 pb-[calc(env(safe-area-inset-bottom)+10px)] pt-2">
+                                <div className="flex items-center justify-between max-w-md mx-auto">
+                                    <VercelTab
+                                        active={value === "home"}
+                                        onClick={() => handleClick("goback")}
+                                        icon={<FaHome size={20} />}
+                                        label="Home"
+                                    />
+                                </div>
+                            </nav>
+                        </>
+                    }
                 </div>
             </header>
             <div
