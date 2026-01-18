@@ -66,7 +66,7 @@ function loadHistory(): BlackjackHistoryEntry[] {
 }
 
 function cardLabel(card: Card) {
-    return `${card.rank}${card.suit}`;
+    return `${card.rank} ${card.suit}`;
 }
 
 export default function BlackJackHistory() {
@@ -89,7 +89,7 @@ export default function BlackJackHistory() {
     }, [history, page]);
 
     return (
-        <section className="w-full rounded-3xl border border-neutral-800 bg-neutral-950/60 p-4 sm:p-6 text-white shadow-2xl">
+        <section className="w-full box-primary p-4 sm:p-6 text-white shadow-2xl">
             <div className="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
                 <div>
                     <h2 className="text-xl sm:text-2xl font-bold">Blackjack History</h2>
@@ -115,7 +115,7 @@ export default function BlackJackHistory() {
                 {pageEntries.map((entry) => (
                     <div
                         key={entry.id}
-                        className="rounded-2xl border border-neutral-800 bg-neutral-900/70 p-4 sm:p-5 shadow-xl"
+                        className="box-primary p-4 sm:p-5 shadow-xl"
                     >
                         <div className="flex flex-col gap-2 sm:flex-row sm:items-start sm:justify-between">
                             <div>
@@ -162,7 +162,7 @@ export default function BlackJackHistory() {
                         </div>
 
                         <div className="mt-4 grid gap-4 lg:grid-cols-[1fr_2fr]">
-                            <div className="rounded-xl border border-neutral-800 bg-neutral-950/50 p-3">
+                            <div className="box-primary p-3">
                                 <div className="text-[10px] uppercase tracking-widest text-neutral-400">
                                     Dealer
                                 </div>
@@ -170,7 +170,7 @@ export default function BlackJackHistory() {
                                     {entry.dealerHand.map((card) => (
                                         <span
                                             key={card.id}
-                                            className="rounded-lg border border-neutral-700 bg-neutral-800 px-2 py-1 text-xs text-neutral-200"
+                                            className="box-primary px-2 py-1 text-xs text-neutral-200 font-extrabold"
                                         >
                                             {cardLabel(card)}
                                         </span>
@@ -178,7 +178,7 @@ export default function BlackJackHistory() {
                                 </div>
                             </div>
 
-                            <div className="rounded-xl border border-neutral-800 bg-neutral-950/50 p-3">
+                            <div className="box-primary p-3">
                                 <div className="text-[10px] uppercase tracking-widest text-neutral-400">
                                     Player Hands
                                 </div>
@@ -208,7 +208,7 @@ export default function BlackJackHistory() {
                                                 {hand.map((card) => (
                                                     <span
                                                         key={card.id}
-                                                        className="rounded-lg border border-neutral-700 bg-neutral-800 px-2 py-1 text-xs text-neutral-200"
+                                                        className="box-primary px-2 py-1 text-xs text-neutral-200 font-extrabold"
                                                     >
                                                         {cardLabel(card)}
                                                     </span>
