@@ -1,6 +1,5 @@
 import {Navigation} from "@/components/navigation";
 import React from "react";
-import BlackJack from "@/app/minigames/blackjack/client";
 import {Metadata} from "next";
 import RouletteGame from "@/app/minigames/roulette/client";
 

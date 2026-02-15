@@ -1,6 +1,5 @@
 import {Navigation} from "@/components/navigation";
 import React from "react";
-import Minigames from "@/app/minigames/client";
 import {Metadata} from "next";
 import CrashGame from "@/app/minigames/crash/client";
 
