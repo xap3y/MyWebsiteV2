@@ -43,12 +43,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-    <head>
+    {/*<head>
         <script
             crossOrigin="anonymous"
             src="//unpkg.com/react-scan/dist/auto.global.js"
         />
-    </head>
+    </head>*/}
       <body
           cz-shortcut-listen="true"
         className={`${geistSans.variable} ${geistMono.variable} h-[100vh] antialiased bg-primary text-whitesmoke scroll-smooth bg-primaryDotted bg-primaryDottedSize`}
