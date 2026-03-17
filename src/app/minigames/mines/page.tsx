@@ -11,7 +11,7 @@ export default function DiceMinigamePage() {
 
     return (
         <>
-            <Navigation animations={false} back={true} />
+            <Navigation animations={false} value={"minigames"} back={true} />
             <MinesGame />
         </>
     )

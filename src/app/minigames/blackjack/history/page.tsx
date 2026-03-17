@@ -44,6 +44,7 @@ const HISTORY_STORAGE_KEY = "blackjack_history_v1";
 const PAGE_SIZE = 10;
 
 function formatCurrency(n: number) {
+    if (!n) return "$0";
     return n.toLocaleString("en-US", { style: "currency", currency: "USD" });
 }
 

@@ -59,6 +59,21 @@ export const minigames: Minigame[] = [
         enabled: true
     },
     {
+        key: "tower",
+        name: "Tower",
+        description: "Climb the tower by choosing the correct path. Each level you climb increases your winnings, but one wrong move and you lose it all!",
+        slug: "tower",
+        tags: ["Tower", "Casino"],
+        enabled: true
+    },{
+        key: "hilo",
+        name: "High or Low",
+        description: "Guess whether the next card will be higher or lower than the current card. Keep guessing to increase your winnings, but one wrong guess and you lose it all!",
+        slug: "hilo",
+        tags: ["High or Low", "Casino"],
+        enabled: true
+    },
+    {
         key: "tictactoe",
         name: "Tic Tac Toe",
         description: "Play a game of Tic Tac Toe against the computer.",

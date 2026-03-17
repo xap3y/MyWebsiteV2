@@ -8,15 +8,18 @@ import {NavButton, NavButtonMobile} from "@/components/navButton";
 import {VerLine} from "@/components/verLine";
 import React, {useEffect, useState} from "react";
 import {useRouter} from "next/navigation";
+import {FaGamepad} from "react-icons/fa6";
 
 interface Props {
     animations: boolean;
     value?: string;
+    label?: string;
     setValue?: React.Dispatch<React.SetStateAction<string>>;
     back?: boolean;
+    redirect?: boolean;
 }
 
-export function Navigation({animations, value, setValue, back}: Props) {
+export function Navigation({animations, value, label, setValue, back, redirect = false}: Props) {
 
     const [header, setHeader] = useState("XAP3Y");
     const [loading, setLoading] = useState(false);
@@ -109,9 +112,18 @@ export function Navigation({animations, value, setValue, back}: Props) {
         if (value === "goback") {
             router.push("/")
             return;
+        } else if (value === "minigames") {
+            router.push("/minigames");
+            return;
         }
         if (setValue) {
             setValue(value);
+            console.log("Set value to: " + value);
+            if (redirect) {
+                router.push("/");
+            }
+        } else {
+            router.push("/?page=" + value);
         }
     }
 
@@ -146,7 +158,7 @@ export function Navigation({animations, value, setValue, back}: Props) {
                         {
                             back ?
                                 <>
-                                    <NavButton onClick={() => handleClick("goback")} icon={<FaHome size={30}/>} label="HOME" route="/home"/>
+                                    <NavButton onClick={() => handleClick(value ? value : "goback")} icon={<FaHome size={30}/>} label={label ? label : "BACK"} route="/home"/>
                                 </> :
                                 <>
                                     <NavButton onClick={() => handleClick("home")} icon={<FaHome size={30}/>} label="HOME" route="/home"/>
@@ -190,6 +202,12 @@ export function Navigation({animations, value, setValue, back}: Props) {
                                     icon={<RiLinksFill size={20} />}
                                     label="Links"
                                 />
+                                <VercelTab
+                                    active={value === "minigames"}
+                                    onClick={() => handleClick("minigames")}
+                                    icon={<FaGamepad size={20} />}
+                                    label="Minigames"
+                                />
                             </div>
                         </nav>
                     </> :
@@ -198,9 +216,9 @@ export function Navigation({animations, value, setValue, back}: Props) {
                                 <div className="flex items-center justify-between max-w-md mx-auto">
                                     <VercelTab
                                         active={value === "home"}
-                                        onClick={() => handleClick("goback")}
+                                        onClick={() => handleClick(value ? value : "goback")}
                                         icon={<FaHome size={20} />}
-                                        label="Home"
+                                        label={label ? label : "BACK"}
                                     />
                                 </div>
                             </nav>

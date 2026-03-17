@@ -13,6 +13,7 @@ export default function page() {
     const [value, setValue] = useState<string>("home");
 
     const [isLoaded, setIsLoaded] = useState(false);
+    const [animation, setIsAnimation] = useState(true);
     const texts = ["Привет",          "Vítejte",         "स्वागत",     "ကြိုဆိုပါတယ်။", "Willkommen",  "いらっしゃいませ",   "환영", "Bienvenida", "Bem-vindo", "خوش آمدید"];
     const fonts = ["playwrite-vn-400", "kode-mono-700", "fleur-de-leah-regular", "caesar-dressing-regular", "sixtyfour-default"];
     const [currentText, setCurrentText] = useState("Welcome");
@@ -23,7 +24,6 @@ export default function page() {
     const [discordDetails, setDiscordDetails] = useState<UserInfo>();
 
     type Status = "online" | "idle" | "dnd" | "offline";
-
 
     useEffect(() => {
 
@@ -38,25 +38,36 @@ export default function page() {
             });
         }, 10000);
 
-        setTimeout(() => {
-            let index = 0;
-            let fontInd = 0;
-
-            const intervalId = setInterval(() => {
-                setCurrentText(texts[index]);
-                setOpacity(prevOpacity => Math.max(prevOpacity - 0.08, 0));
-                setBlur(prevBlur => prevBlur + 0.18);
-                fontInd = (fontInd + 1) % fonts.length;
-                index = (index + 1) % texts.length;
-                setFontIndex(fontInd);
-            }, 120);
-
+        const queryPage = new URLSearchParams(window.location.search).get("page");
+        if (queryPage) {
+            setValue(queryPage);
+            setIsAnimation(false);
+            setIsLoaded(true);
+            // remote ?page from router
+            const url = new URL(window.location.href);
+            url.searchParams.delete("page");
+            window.history.replaceState({}, '', url.toString());
+        } else {
             setTimeout(() => {
-                setIsLoaded(true);
-                clearInterval(intervalId);
-            }, 1200);
-        }, 300);
-    }, [router]);
+                let index = 0;
+                let fontInd = 0;
+
+                const intervalId = setInterval(() => {
+                    setCurrentText(texts[index]);
+                    setOpacity(prevOpacity => Math.max(prevOpacity - 0.08, 0));
+                    setBlur(prevBlur => prevBlur + 0.18);
+                    fontInd = (fontInd + 1) % fonts.length;
+                    index = (index + 1) % texts.length;
+                    setFontIndex(fontInd);
+                }, 120);
+
+                setTimeout(() => {
+                    setIsLoaded(true)
+                    clearInterval(intervalId);
+                }, 1200);
+            }, 300);
+        }
+    }, [router, setIsAnimation]);
 
     const getFontClass = () => fonts[fontIndex];
 
@@ -81,7 +92,7 @@ export default function page() {
 
             {isLoaded && (
                 <>
-                    <Navigation setValue={setValue} value={value} animations={true} />
+                    <Navigation setValue={setValue} value={value} animations={animation} />
 
                     <Index2 value={value} discord={discordDetails} />
                 </>

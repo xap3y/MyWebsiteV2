@@ -1,6 +1,4 @@
 import {Navigation} from "@/components/navigation";
-import Projects from "@/app/projects/client";
-import {linktree} from "@/util/config";
 import Links from "@/app/links/client";
 
 export default function Page() {

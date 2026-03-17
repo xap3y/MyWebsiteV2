@@ -80,6 +80,7 @@ function isNaturalBlackjack(cards: Card[]): boolean {
 }
 
 function formatCurrency(n: number) {
+    if (!n) return "$0";
     return n.toLocaleString("en-US", { style: "currency", currency: "USD" });
 }
 

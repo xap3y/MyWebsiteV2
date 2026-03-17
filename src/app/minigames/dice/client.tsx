@@ -27,6 +27,7 @@ const HOUSE_EDGE = 0.01; // 1%
 // --- Helpers ---
 
 function formatCurrency(n: number) {
+    if (!n) return "$0";
     return n.toLocaleString("en-US", { style: "currency", currency: "USD" });
 }
 

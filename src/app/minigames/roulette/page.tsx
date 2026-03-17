@@ -11,7 +11,7 @@ export default function RoulettePage() {
 
     return (
         <>
-            <Navigation animations={false} back={true} />
+            <Navigation animations={false} value={"minigames"} back={true} />
             <RouletteGame />
         </>
     )

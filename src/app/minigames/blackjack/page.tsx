@@ -11,7 +11,7 @@ export default function BlackJackGame() {
 
     return (
         <>
-            <Navigation animations={false} back={true} />
+            <Navigation animations={false} value={"minigames"} back={true} />
             <BlackJack />
         </>
     )

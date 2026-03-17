@@ -11,7 +11,7 @@ export default function MinigamesPage() {
 
     return (
         <>
-            <Navigation animations={false} back={true} />
+            <Navigation animations={false} redirect={true} />
             <Minigames />
         </>
     )
