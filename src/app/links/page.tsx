@@ -19,7 +19,7 @@ export default function Page() {
                         <p className={"text-red-700 text-4xl font-bold py-12"}>In limbo</p>
                         <div className="flex flex-col items-center mb-4">
                             <h1 className="text-2xl text-white font-bold pt-3 font-mono">@XAP3Y</h1>
-                            <a href="https://xap3y.fun" className="text-white opacity-[.6]">xap3y.fun</a>
+                            <a href="https://xap3y.eu" className="text-white opacity-[.6]">xap3y.eu</a>
                         </div>
                         <div className="flex flex-col space-y-3">
                             {

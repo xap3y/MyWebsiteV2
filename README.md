@@ -1,2 +1,2 @@
-## [xap3y.fun](https://xap3y.fun)
+## [xap3y.eu](https://xap3y.eu)
 

@@ -2,8 +2,8 @@ import {Project} from "@/types/project";
 
 export const projects: Project[] = [
     {
-        name: "XAP3Y.fun",
-        url: "https://xap3y.fun",
+        name: "XAP3Y.eu",
+        url: "https://xap3y.eu",
         description: "My personal website, built with TS, React, Next.js and Tailwind CSS.",
         tags: [
             "https://img.shields.io/badge/Next.js-black?logo=next.js&logoColor=white",
@@ -38,10 +38,10 @@ export const projects: Project[] = [
             label: "View portal",
             href: "https://xap3y.space",
         },
-        right_button: {
+        /*right_button: {
             label: "API Docs",
             href: "https://docs.xap3y.space",
-        },
+        },*/
         gallery: [
             "/img/space/02.png",
             "/img/space/03.png",
@@ -55,7 +55,7 @@ export const projects: Project[] = [
     },
     {
         name: "XaGUI",
-        url: "https://xagui.xap3y.space",
+        url: "https://xagui.xap3y.eu",
         description: "Lightweight Minecraft menu API. This API allows you to easily set button actions, define onClose and onOpen actions, and perform fast icon updates without reopening the GUI. You can also create multi-page GUI's.",
         tags: [
             "https://img.shields.io/badge/Java-%23ED8B00.svg?logo=openjdk&logoColor=white",
@@ -63,7 +63,7 @@ export const projects: Project[] = [
         ],
         right_button: {
             label: "Docs + Examples",
-            href: "https://xagui.xap3y.space",
+            href: "https://xagui.xap3y.eu",
         },
         left_button: {
             label: "Maven central",
@@ -191,7 +191,7 @@ export const projects: Project[] = [
     },*/
     {
         name: "AdventCalendar Plugin",
-        description: "A plugin for Minecraft servers that adds Easter egg hunt to the game. Players need to find eggs hidden around the map and collect them.",
+        description: "A plugin for Minecraft servers that adds Advent calendar to the game. Players can open one door every day and get random rewards. The plugin also includes a custom GUI menu.",
         tags: [
             "https://img.shields.io/badge/Java-%23ED8B00.svg?logo=openjdk&logoColor=white"
         ],

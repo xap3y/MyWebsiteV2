@@ -11,7 +11,7 @@ export const socials = [
     },
     {
         name: "Mail",
-        link: "mailto:e@xap3y.fun",
+        link: "mailto:e@xap3y.eu",
         icon: "material-symbols:mail",
     }
 ] satisfies {
@@ -23,7 +23,7 @@ export const socials = [
 export const linktree = [
     {
         name: "My site",
-        link: "https://xap3y.fun",
+        link: "https://xap3y.eu",
         desc: "Portfolio & projects",
         img: "mdi:home",
         // subtle “vercel-ish” dark gradient

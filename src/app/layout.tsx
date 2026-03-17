@@ -24,14 +24,14 @@ export const metadata: Metadata = {
         type: "website",
         locale: "en_US",
         siteName: "@XAP3Y",
-        url: "https://xap3y.fun",
+        url: "https://xap3y.eu",
     },
     twitter: {
         title: "@XAP3Y",
         description: "Personal website of XAP3Y",
         site: "@XAP3Y",
         card: "summary_large_image",
-        images: "https://xap3y.fun/og.png",
+        images: "https://xap3y.eu/og.png",
     },
     creator: "XAP3Y",
 };
