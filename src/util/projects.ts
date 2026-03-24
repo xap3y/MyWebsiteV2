@@ -19,7 +19,7 @@ export const projects: Project[] = [
     },
     {
         name: "Space",
-        url: "https://xap3y.space",
+        url: "https://space.xap3y.eu",
         description: "Image/file hosting service, pastebin host, temp email and URL shortener. API made with Java and Spring Boot, and a frontend made with React and Next.js.",
         tags: [
             "https://img.shields.io/badge/Java-%23ED8B00.svg?logo=openjdk&logoColor=white",
@@ -36,11 +36,11 @@ export const projects: Project[] = [
         ],
         left_button: {
             label: "View portal",
-            href: "https://xap3y.space",
+            href: "https://space.xap3y.eu",
         },
         /*right_button: {
             label: "API Docs",
-            href: "https://docs.xap3y.space",
+            href: "https://docs.xap3y.eu",
         },*/
         gallery: [
             "/img/space/02.png",

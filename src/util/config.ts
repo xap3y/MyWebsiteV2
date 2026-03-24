@@ -80,7 +80,7 @@ export const linktree = [
     },
     /*{
         name: "Space",
-        link: "https://xap3y.space/user/xap3y",
+        link: "https://space.xap3y.eu/user/xap3y",
         desc: "@xap3y",
         img: "token:space",
         bg: "bg-gradient-to-r from-zinc-950 via-zinc-900 to-zinc-800",
