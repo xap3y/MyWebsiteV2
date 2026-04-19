@@ -112,8 +112,8 @@ export default function ProjectModal({
                                 <div className="flex items-center justify-between">
                                     <h3 className="font-semibold text-white/90">Gallery</h3>
                                     <span className="text-xs text-white/50">
-                    {project.gallery.length} image(s)
-                  </span>
+                                        {project.gallery.length} image(s)
+                                    </span>
                                 </div>
 
                                 <div
@@ -126,12 +126,14 @@ export default function ProjectModal({
                                             key={src}
                                             type="button"
                                             onClick={() => setActiveImageIndex(idx)}
-                                            className="group relative rounded-xl border border-white/10 overflow-hidden"
+                                            // 1. Added bg-white/5 so it looks like a skeleton loader while the image fetches
+                                            className="group relative rounded-xl border border-white/10 overflow-hidden bg-white/5"
                                         >
                                             <img
                                                 src={src}
                                                 alt={`gallery-${idx}`}
-                                                className="h-28 sm:h-32 w-auto max-w-[80vw] sm:max-w-[220px] object-cover transition-transform duration-200 group-hover:scale-[1.03]"
+                                                // 2. Added aspect-video to reserve the width based on the fixed height
+                                                className="h-28 sm:h-32 aspect-video w-auto max-w-[80vw] sm:max-w-[220px] object-cover transition-transform duration-200 group-hover:scale-[1.03]"
                                                 draggable={false}
                                                 loading="lazy"
                                             />

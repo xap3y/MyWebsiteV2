@@ -20,7 +20,7 @@ export const projects: Project[] = [
     {
         name: "Space",
         url: "https://space.xap3y.eu",
-        description: "Image/file hosting service, pastebin host, temp email and URL shortener. API made with Java and Spring Boot, and a frontend made with React and Next.js.",
+        description: "Image/file hosting service, pastebin host, temp email, file host and URL shortener. API made with Java and Spring Boot, and a frontend made with React and Next.js.",
         tags: [
             "https://img.shields.io/badge/Java-%23ED8B00.svg?logo=openjdk&logoColor=white",
             "https://img.shields.io/badge/Spring%20Boot-6DB33F?logo=springboot&logoColor=fff",
@@ -38,10 +38,10 @@ export const projects: Project[] = [
             label: "View portal",
             href: "https://space.xap3y.eu",
         },
-        /*right_button: {
+        right_button: {
             label: "API Docs",
-            href: "https://docs.xap3y.eu",
-        },*/
+            href: "https://space.xap3y.eu/docs",
+        },
         gallery: [
             "/img/space/02.png",
             "/img/space/03.png",
@@ -51,6 +51,8 @@ export const projects: Project[] = [
             "/img/space/07.png",
             "/img/space/08.png",
             "/img/space/09.png",
+            "/img/space/10.png",
+            "/img/space/11.png",
         ]
     },
     {
@@ -68,7 +70,11 @@ export const projects: Project[] = [
         left_button: {
             label: "Maven central",
             href: "https://central.sonatype.com/artifact/eu.xap3y/xagui",
-        }
+        },
+        gallery: [
+            "/img/gui/01.png",
+            "https://static.xap3y.eu/xagui/step2.png"
+        ]
     },
     {
         name: "Connect4",
@@ -119,6 +125,20 @@ export const projects: Project[] = [
         ]
     },
     {
+        name: "Report System",
+        url: "https://playcore.cz",
+        description: "A powerful, high-performance reporting solution for Velocity proxy servers, seamlessly integrated with Discord and MariaDB. This plugin bridges the gap between your Minecraft server and staff team by creating dedicated Discord channels for every report.",
+        tags: [
+            "https://img.shields.io/badge/Java-%23ED8B00.svg?logo=openjdk&logoColor=white",
+            "https://img.shields.io/badge/MariaDB-003545?logo=mariadb&logoColor=white",
+        ],
+        gallery: [
+            "/img/reports/01.png",
+            "/img/reports/02.png",
+            "/img/reports/03.png"
+        ]
+    },
+    {
         name: "Mentions Plugin",
         description: "A plugin for Minecraft servers that adds Easter egg hunt to the game. Players need to find eggs hidden around the map and collect them.",
         tags: [
@@ -144,6 +164,13 @@ export const projects: Project[] = [
         description: "Minecraft prison minigame with custom GUI, enchants, level system, tool upgrading, prestiges, crates, and unique features. This project is developed in Java and Bukkit API, providing a unique and engaging prison experience for players. The minigame is currently not available to play",
         tags: [
             "https://img.shields.io/badge/Java-%23ED8B00.svg?logo=openjdk&logoColor=white"
+        ],
+        gallery: [
+            "/img/prison/01.png",
+            "/img/prison/02.png",
+            "/img/prison/03.png",
+            "/img/prison/04.png",
+            "/img/prison/05.png"
         ]
     },
     {
@@ -197,7 +224,7 @@ export const projects: Project[] = [
         ],
         left_button: {
             label: "Source",
-            href: "https://github.com/xap3y/McGeocaching",
+            href: "https://github.com/xap3y/AdventCalendar",
             icon: "mdi:github"
         },
         gallery: [
