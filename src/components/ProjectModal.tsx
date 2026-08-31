@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useEffect, useState } from "react";
+import React, { MouseEvent, useEffect, useRef, useState } from "react";
 import { Project, ProjectButton } from "@/types/project";
 import { Icon } from "@iconify/react";
 
@@ -15,6 +15,9 @@ export default function ProjectModal({
 }) {
     const [activeImageIndex, setActiveImageIndex] = useState<number | null>(null);
     const [isMobile, setIsMobile] = useState(false);
+    const [isZoomed, setIsZoomed] = useState(false);
+    const imageContainerRef = useRef<HTMLDivElement>(null);
+    const zoomPointRef = useRef({ x: 0.5, y: 0.5 });
 
     // Track mobile breakpoint
     useEffect(() => {
@@ -30,15 +33,56 @@ export default function ProjectModal({
         const onKey = (e: KeyboardEvent) => {
             if (e.key === "Escape") {
                 activeImageIndex !== null ? setActiveImageIndex(null) : onClose();
+            } else if (activeImageIndex !== null && e.key === "ArrowLeft") {
+                e.preventDefault();
+                setActiveImageIndex((index) => index === null ? null : Math.max(0, index - 1));
+            } else if (activeImageIndex !== null && e.key === "ArrowRight") {
+                e.preventDefault();
+                setActiveImageIndex((index) => index === null
+                    ? null
+                    : Math.min((project?.gallery?.length || 1) - 1, index + 1));
             }
         };
         document.addEventListener("keydown", onKey);
         return () => document.removeEventListener("keydown", onKey);
-    }, [open, onClose, activeImageIndex]);
+    }, [open, onClose, activeImageIndex, project]);
 
     useEffect(() => {
         if (!open) setActiveImageIndex(null);
     }, [open, project]);
+
+    useEffect(() => {
+        setIsZoomed(false);
+    }, [activeImageIndex]);
+
+    useEffect(() => {
+        if (!isZoomed) return;
+
+        const frame = requestAnimationFrame(() => {
+            const container = imageContainerRef.current;
+            if (!container) return;
+
+            const { x, y } = zoomPointRef.current;
+            container.scrollLeft = x * container.scrollWidth - container.clientWidth / 2;
+            container.scrollTop = y * container.scrollHeight - container.clientHeight / 2;
+        });
+
+        return () => cancelAnimationFrame(frame);
+    }, [isZoomed]);
+
+    const toggleImageZoom = (event: MouseEvent<HTMLImageElement>) => {
+        if (isMobile) return;
+
+        if (!isZoomed) {
+            const bounds = event.currentTarget.getBoundingClientRect();
+            zoomPointRef.current = {
+                x: (event.clientX - bounds.left) / bounds.width,
+                y: (event.clientY - bounds.top) / bounds.height,
+            };
+        }
+
+        setIsZoomed((zoomed) => !zoomed);
+    };
 
     if (!open || !project) return null;
 
@@ -162,6 +206,18 @@ export default function ProjectModal({
                                                         {activeImageIndex + 1} / {project.gallery.length}
                                                     </span>
                                                     <div className="flex items-center gap-2">
+                                                        {!isMobile && (
+                                                            <button
+                                                                onClick={() => {
+                                                                    zoomPointRef.current = { x: 0.5, y: 0.5 };
+                                                                    setIsZoomed((zoomed) => !zoomed);
+                                                                }}
+                                                                className="rounded-lg px-3 py-1.5 text-xs box-primary hover:bg-white/5"
+                                                                aria-pressed={isZoomed}
+                                                            >
+                                                                {isZoomed ? "Zoom out" : "Zoom in"}
+                                                            </button>
+                                                        )}
                                                         <button
                                                             onClick={() => setActiveImageIndex((i) => (i === null ? null : Math.max(0, i - 1)))}
                                                             className="rounded-lg px-3 py-1.5 text-xs box-primary disabled:opacity-30 disabled:cursor-not-allowed hover:bg-white/5"
@@ -186,11 +242,18 @@ export default function ProjectModal({
                                                 </div>
 
                                                 {/* Image Container */}
-                                                <div className="p-2 sm:p-4 flex items-center justify-center bg-black/20">
+                                                <div ref={imageContainerRef} className={`p-2 sm:p-4 bg-black/20 ${
+                                                    isZoomed ? "max-h-[75vh] overflow-auto" : "flex items-center justify-center"
+                                                }`}>
                                                     <img
                                                         src={project.gallery[activeImageIndex]}
-                                                        alt="zoomed"
-                                                        className="max-h-[70vh] w-auto max-w-full object-contain rounded-md shadow-lg"
+                                                        alt={`${project.name} gallery image ${activeImageIndex + 1}`}
+                                                        onClick={toggleImageZoom}
+                                                        className={`${
+                                                            isZoomed
+                                                                ? "w-[200%] max-w-none max-h-none cursor-zoom-out"
+                                                                : "w-auto max-h-[70vh] max-w-full cursor-zoom-in"
+                                                        } object-contain rounded-md shadow-lg mx-auto`}
                                                         draggable={false}
                                                     />
                                                 </div>
