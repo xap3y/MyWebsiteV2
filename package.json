@@ -1,6 +1,6 @@
 {
-  "name": "website2",
-  "version": "0.1.0",
+  "name": "XAP3Y Website",
+  "version": "1.0.1",
   "private": true,
   "scripts": {
     "dev": "next dev",
@@ -16,7 +16,7 @@
     "cursor-dot": "^1.0.5",
     "custom-cursor-react": "^1.0.5",
     "lucide-react": "^0.474.0",
-    "next": "^15.5.18",
+    "next": "^15.5.28",
     "react": "^19.2.3",
     "react-dom": "^19.0.0",
     "react-icons": "^5.4.0",
